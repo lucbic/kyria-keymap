@@ -1,0 +1,11 @@
+.venv
+env
+.west
+zephyr
+modules
+build
+build_left
+build_right
+cirque-input-module
+zmk
+zmk-oled-adapter
