@@ -1,0 +1,8 @@
+# Copyright (c) 2025 ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+config SHIELD_KYRIA_TOUCHPAD_LEFT
+    def_bool $(shields_list_contains,kyria_touchpad_left)
+
+config SHIELD_KYRIA_TOUCHPAD_RIGHT
+    def_bool $(shields_list_contains,kyria_touchpad_right)
