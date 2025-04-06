@@ -36,7 +36,7 @@ echo "Building..."
 west build -b "nice_nano_v2" -d build_right/ -s zmk/app -- \
   -DZMK_CONFIG="$PWD/config" \
   -DSHIELD="kyria_rev3_right" \
-  -DZMK_EXTRA_MODULES="/home/lucbic/projects/test-zmk/cirque-input-module" \
+  -DZMK_EXTRA_MODULES="$PWD/zmk-cirque-adapter" \
   -DCONFIG_ZMK_STUDIO="y"
 
 rm -rf build_left/
