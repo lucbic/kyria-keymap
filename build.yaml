@@ -20,6 +20,10 @@
 ---
 include:
   - board: nice_nano_v2
-    shield: kyria_rev3
+    shield: kyria_rev3_left
   - board: nice_nano_v2
-    shield: kyria_rev3
+    shield: kyria_rev3_right
+  - board: nice_nano_v2
+    shield: kyria_touchpad_left
+  - board: nice_nano_v2
+    shield: kyria_touchpad_right

@@ -1,0 +1,20 @@
+/*
+ * Copyright (c) 2025 ZMK Contributors
+ * SPDX-License-Identifier: MIT
+ */
+
+/ {
+    chosen {
+        zmk,pointing = &touchpad;
+    };
+};
+
+&pro_micro_i2c {
+    status = "okay";
+
+    touchpad: cirque_pinnacle@2a {
+        compatible = "cirque,pinnacle";
+        reg = <0x2A>;
+        status = "okay";
+    };
+};
