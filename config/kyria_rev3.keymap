@@ -4,6 +4,12 @@
 #include <dt-bindings/zmk/backlight.h>
 #include <dt-bindings/zmk/keys.h>
 
+// Mouse
+// #define ZMK_POINTING_DEFAULT_SCRL_VAL 600 // Default 300
+// #include <input/processors.dtsi>
+// #include <dt-bindings/zmk/pointing.h>
+// #include <dt-bindings/zmk/input_transform.h>
+
 &sl { release-after-ms = <1000>; };
 
 / {
