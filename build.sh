@@ -17,6 +17,10 @@ echo "Installing/upgrading west..."
 pip install --upgrade west
 pip install pyelftools
 
+# Add protobuf dependencies
+echo "Installing protobuf dependencies..."
+pip install protobuf grpcio-tools
+
 # --- Initialize and update west ---
 # Only run 'west init' if the repository is not already initialized.
 # (This creates the .west directory)
@@ -33,18 +37,17 @@ west update
 echo "Cleaning build directory..."
 rm -rf build_right/
 echo "Building..."
-west build -b "nice_nano_v2" -d build_right/ -s zmk/app -- \
+west build -b "nice_nano_v2" -d build_right/ -s zmk/app -S zmk-usb-logging -S cdc-acm-console -- \
   -DZMK_CONFIG="$PWD/config" \
   -DSHIELD="kyria_rev3_right" \
-  -DZMK_EXTRA_MODULES="$PWD/zmk-cirque-adapter" \
-  -DCONFIG_ZMK_STUDIO="y"
+  -DZMK_EXTRA_MODULES="$PWD/cirque-input-module" \
 
 rm -rf build_left/
 echo "Building..."
 west build -b "nice_nano_v2" -d build_left/ -s zmk/app -- \
   -DZMK_CONFIG="$PWD/config" \
   -DSHIELD="kyria_rev3_left dongle_display" \
-  -DCONFIG_ZMK_STUDIO="y"
+  
 
 # --- Copy output UF2 files ---
 echo "Creating output directory..."
