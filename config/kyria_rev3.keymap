@@ -45,15 +45,15 @@
             //                     |MEDIA | MO6  | DEL  | BSPC| ESC |  | RET |SPACE| TAB  | MO5   |
 
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp E     &kp R     &kp T                                                   &kp Y    &kp U  &kp I      &kp O    &kp P     &kp CARET
-&kp LSHFT  &kp A  &kp S  &kp D     &kp F     &kp G                                                   &kp H    &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LCTRL  &kp Z  &kp X  &kp C     &kp V     &kp B       &mo 1          &mo 2    &mo 3    &mo 4      &kp N    &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp GRAVE
-                         &kp LGUI  &kp LALT  &kp DELETE  &kp BACKSPACE  &kp ESC  &kp RET  &kp SPACE  &kp TAB  &mo 5  &mo 6
+&kp TAB    &kp Q  &kp W  &kp E   &kp R         &kp T                                                     &kp Y  &kp U      &kp I      &kp O    &kp P     &kp CARET
+&kp LSHFT  &kp A  &kp S  &kp D   &kp F         &kp G                                                     &kp H  &kp J      &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LCTRL  &kp Z  &kp X  &kp C   &kp V         &kp B         &mo 1          &mo 2    &mo 3    &mo 4      &kp N  &kp M      &kp COMMA  &kp DOT  &kp FSLH  &kp GRAVE
+                         &trans  &kp LEFT_WIN  &kp LEFT_ALT  &kp BACKSPACE  &kp DEL  &kp RET  &kp SPACE  &mo 5  &lt 6 ESC  &trans
             >;
 
             sensor-bindings =
                 <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&inc_dec_kp LC(K_SCROLL_UP) K_SCROLL_DOWN>;
+                <&inc_dec_kp LC(C_AC_SCROLL_UP) C_AC_SCROLL_DOWN>;
         };
 
         num_layer {
