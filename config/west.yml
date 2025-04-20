@@ -4,8 +4,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: englmaxi
       url-base: https://github.com/englmaxi
-    - name: badjeff
-      url-base: https://github.com/badjeff
+    - name: petejohanson
+      url-base: https://github.com/petejohanson
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -15,7 +15,7 @@ manifest:
       remote: englmaxi
       revision: main
     - name: cirque-input-module
-      remote: badjeff
-      revision: tweak
+      remote: petejohanson
+      revision: main
   self:
     path: config
