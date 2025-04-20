@@ -4,7 +4,9 @@
         compatible = "cirque,pinnacle";
         reg = <0x2a>;
         status = "disabled";
-        dr-gpios = <&pro_micro 2 (GPIO_ACTIVE_HIGH)>;
+        dr-gpios = <&pro_micro 0 (GPIO_ACTIVE_HIGH)>;
+        y-invert;
+        sleep;
 
         sensitivity = "1x";
     };

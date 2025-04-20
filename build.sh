@@ -37,7 +37,7 @@ west update
 echo "Cleaning build directory..."
 rm -rf build_right/
 echo "Building..."
-west build -b "nice_nano_v2" -d build_right/ -s zmk/app -S zmk-usb-logging -S cdc-acm-console -- \
+west build -b "nice_nano_v2" -d build_right/ -s zmk/app -- \
   -DZMK_CONFIG="$PWD/config" \
   -DSHIELD="kyria_rev3_right" \
   -DZMK_EXTRA_MODULES="$PWD/cirque-input-module" \
