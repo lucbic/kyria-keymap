@@ -15,40 +15,7 @@
 &sl { release-after-ms = <1000>; };
 
 / {
-    behaviors {
-        hm: homerow_mods {
-            compatible = "zmk,behavior-hold-tap";
-            label = "homerow mods";
-            #binding-cells = <2>;
-            tapping-term-ms = <150>;
-            quick-tap-ms = <0>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
-
-        mx: layer_tap_FNC {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_TAP_FNC";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping_term_ms = <200>;
-            bindings = <&mo>, <&sl>;
-        };
-    };
-
-    combos {
-        compatible = "zmk,combos";
-
-        m_left_click {
-            bindings = <&mkp LCLK>;
-            key-positions = <32 45>;
-        };
-
-        m_right_click {
-            bindings = <&mkp RCLK>;
-            key-positions = <33 46>;
-        };
-    };
+    combos { compatible = "zmk,combos"; };
 
     keymap {
         compatible = "zmk,keymap";
@@ -61,10 +28,10 @@
             //                     |MEDIA | MO6  | DEL  | BSPC| ESC |  | RET |SPACE| TAB  | MO5   |
 
             bindings = <
-&kp ESC        &kp Q           &kp W        &kp E           &kp R               &kp T                                                                          &kp Y    &kp U                &kp I            &kp O        &kp P               &kp CARET
-&kp LSHFT      &hm CAPSLOCK A  &mt LCTRL S  &mt LEFT_ALT D  &mt LEFT_COMMAND F  &kp G                                                                          &kp H    &mt RIGHT_COMMAND J  &mt RIGHT_ALT K  &mt RCTRL L  &mt CAPS SEMICOLON  &kp SQT
-&kp BACKSLASH  &kp Z           &kp X        &kp C           &kp V               &kp B           &kp LC(LA(LEFT))  &kp RA(RC(RIGHT))  &mkp LCLK    &mkp RCLK    &kp N    &kp M                &kp COMMA        &kp DOT      &kp FSLH            &kp GRAVE
-                                            &trans          &msc SCRL_UP        &sk LEFT_SHIFT  &lt 1 BACKSPACE   &lt 2 DELETE       &lt 4 ENTER  &lt 3 SPACE  &kp TAB  &msc SCRL_DOWN       &trans
+&kp ESC        &kp Q  &kp W        &kp E           &kp R               &kp T                                                                          &kp Y    &kp U                &kp I            &kp O        &kp P               &kp CARET
+&kp LSHFT      &kp A  &mt LCTRL S  &mt LEFT_ALT D  &mt LEFT_COMMAND F  &kp G                                                                          &kp H    &mt RIGHT_COMMAND J  &mt RIGHT_ALT K  &mt RCTRL L  &mt CAPS SEMICOLON  &kp SQT
+&kp BACKSLASH  &kp Z  &kp X        &kp C           &kp V               &kp B           &kp LC(LA(LEFT))  &kp RA(RC(RIGHT))  &mkp LCLK    &mkp RCLK    &kp N    &kp M                &kp COMMA        &kp DOT      &kp FSLH            &kp GRAVE
+                                   &trans          &msc SCRL_UP        &sk LEFT_SHIFT  &lt 1 BACKSPACE   &lt 2 DELETE       &lt 4 ENTER  &lt 3 SPACE  &kp TAB  &msc SCRL_DOWN       &trans
             >;
 
             sensor-bindings =
