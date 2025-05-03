@@ -6,11 +6,6 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
 
-// Mouse
-// #define ZMK_POINTING_DEFAULT_SCRL_VAL 600 // Default 300
-// #include <input/processors.dtsi>
-// #include <dt-bindings/zmk/pointing.h>
-// #include <dt-bindings/zmk/input_transform.h>
 
 &sl { release-after-ms = <1000>; };
 
@@ -21,12 +16,6 @@
         compatible = "zmk,keymap";
 
         base_layer {
-            // ---------------------------------------------------------------------------------------------------------------------------------
-            // | CAPS  |  Q  |  W  |  E   |  R   |  T   |                                          |  Y   |  U    |  K    |  O   |   P   |  ^   |
-            // | TAB   |A/ALT|S/WIN|D/SFT |F/CTRL|  G   |                                          |  H   |J/CTRL |K/SFT  |L/WIN |;/ALT  |  '   |
-            // | SHIFT |  Z  |  X  |  C   |  V   |  B   | MO2 | MO1 |  | MO3 | MO4 |  N   |  M     |  ,   |  .    |   /   |  `   |
-            //                     |MEDIA | MO6  | DEL  | BSPC| ESC |  | RET |SPACE| TAB  | MO5   |
-
             bindings = <
 &kp ESC        &kp Q  &kp W        &kp E           &kp R               &kp T                                                                          &kp Y    &kp U                &kp I            &kp O        &kp P               &kp CARET
 &kp LSHFT      &kp A  &mt LCTRL S  &mt LEFT_ALT D  &mt LEFT_COMMAND F  &kp G                                                                          &kp H    &mt RIGHT_COMMAND J  &mt RIGHT_ALT K  &mt RCTRL L  &mt CAPS SEMICOLON  &kp SQT
@@ -53,12 +42,6 @@
         };
 
         num_layer {
-            // ---------------------------------------------------------------------------------------------------------------------------------
-            // | trans | trans | trans | trans | trans | trans |                                        |  /   |  7   |  8   |  9   |  -   | BKSP |
-            // | trans |  ALT  |  WIN  |  SFT  |  CTRL | trans |                                        |  *   |  4   |  5   |  6   |  +   | none |
-            // | trans | trans | trans | trans | trans | trans | trans | trans |  | trans | trans |  =   |  1   |  2   |  3   |  ENT | trans |
-            //                                   | trans | trans | trans | trans | trans | trans |  0   |  .   | trans |
-
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                                  &kp SLASH     &kp N7      &kp N8  &kp N9  &kp MINUS  &kp BACKSPACE
 &trans  &trans  &trans  &trans  &trans  &trans                                  &kp ASTERISK  &kp N4      &kp N5  &kp N6  &kp PLUS   &trans
@@ -70,12 +53,6 @@
         };
 
         nav_layer {
-            // ---------------------------------------------------------------------------------------------------------------------------------
-            // | trans | trans | trans | trans | trans | trans |                                        | PGUP | HOME |  UP  | END  | trans | trans |
-            // | trans |  ALT  |  WIN  |  SFT  |  CTRL | trans |                                        | PGDN | LEFT | DOWN | RIGHT| trans | trans |
-            // | trans | trans | trans | trans | trans | trans | trans | trans |  | trans | trans | trans | trans | trans | trans | trans | trans |
-            //                                   | trans | trans | trans | trans | trans | trans | trans | none | trans |
-
             bindings = <
 &trans  &trans  &msc SCRL_LEFT    &kp LA(LG(UP_ARROW))  &msc SCRL_RIGHT    &msc SCRL_UP                                                         &kp PG_UP  &kp HOME  &kp UP    &kp END    &kp LA(UP)    &trans
 &trans  &trans  &kp LA(LG(LEFT))  &kp LA(LG(DOWN))      &kp LA(LG(RIGHT))  &msc SCRL_DOWN                                                       &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &kp LA(DOWN)  &trans
