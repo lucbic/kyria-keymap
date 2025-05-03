@@ -32,6 +32,13 @@ fi
 echo "Updating west repositories..."
 west update
 
+# Export Zephyr related environment variables
+echo "Setting up build environment..."
+export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
+export GNUARMEMB_TOOLCHAIN_PATH=/opt/homebrew
+
+# Export the Zephyr package for CMake
+west zephyr-export
 
 # --- Clean and build the two halves ---
 echo "Cleaning build directory..."
@@ -40,7 +47,7 @@ echo "Building..."
 west build -b "nice_nano_v2" -d build_right/ -s zmk/app -- \
   -DZMK_CONFIG="$PWD/config" \
   -DSHIELD="kyria_rev3_right" \
-  -DZMK_EXTRA_MODULES="$PWD/cirque-input-module" \
+  -DZMK_EXTRA_MODULES="$PWD/cirque-input-module"
 
 rm -rf build_left/
 echo "Building..."
