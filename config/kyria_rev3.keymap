@@ -6,7 +6,7 @@
 
 &led_strip {
     chain-length = <6>;
-    chain-length = <31>; 
+    chain-length = <31>;
 };
 
 &sl { release-after-ms = <1000>; };
@@ -68,10 +68,10 @@
 
         special_layer {
             bindings = <
-&kp C_SLEEP  &kp F1  &kp F2   &kp F3   &kp F4   &trans                                  &kp C_BRI_INC  &kp C_VOLUME_UP  &kp C_MUTE     &kp C_VOLUME_DOWN  &bl BL_INC      &rgb_ug RGB_BRI
-&trans       &kp F5  &kp F6   &kp F7   &kp F8   &trans                                  &kp C_BRI_DEC  &kp C_PREVIOUS   &kp C_PAUSE    &kp C_NEXT         &bl BL_DEC      &rgb_ug RGB_BRD
-&trans       &kp F9  &kp F10  &kp F11  &kp F12  &trans  &trans  &trans  &trans  &trans  &kp C_AC_REDO  &kp C_AC_UNDO    &kp C_AC_COPY  &kp LS(C_AC_CUT)   &kp C_AC_PASTE  &kp PRINTSCREEN
-                              &trans   &trans   &trans  &trans  &trans  &trans  &trans  &trans         &trans           &trans
+&kp LG(LA(C_EJECT))  &kp F1  &kp F2   &kp F3   &kp F4   &trans                                  &kp C_BRI_INC  &kp C_VOLUME_DOWN  &kp C_MUTE   &kp C_VOLUME_UP  &bl BL_INC  &rgb_ug RGB_BRI
+&trans               &kp F5  &kp F6   &kp F7   &kp F8   &trans                                  &kp C_BRI_DEC  &kp C_PREVIOUS     &kp C_PAUSE  &kp C_NEXT       &bl BL_DEC  &rgb_ug RGB_BRD
+&trans               &kp F9  &kp F10  &kp F11  &kp F12  &trans  &trans  &trans  &trans  &trans  &trans         &trans             &trans       &trans           &trans      &trans
+                                      &trans   &trans   &trans  &trans  &trans  &trans  &trans  &trans         &trans             &trans
             >;
         };
     };
