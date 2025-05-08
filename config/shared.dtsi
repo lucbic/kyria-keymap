@@ -7,7 +7,7 @@
         dr-gpios = <&pro_micro 0 (GPIO_ACTIVE_HIGH)>;
         y-invert;
 
-        sensitivity = "1x";
+        sensitivity = "4x";
     };
 
 };
