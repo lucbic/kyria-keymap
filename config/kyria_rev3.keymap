@@ -41,10 +41,10 @@
 
         base_layer {
             bindings = <
-&kp ESC           &kp Q       &kp W        &kp E           &kp R               &kp T                                                                                &kp Y    &kp U                &kp I            &kp O        &kp P           &kp ESC
-&kp LSHFT         &mt CAPS A  &mt LCTRL S  &mt LEFT_ALT D  &mt LEFT_COMMAND F  &kp G                                                                                &kp H    &mt RIGHT_COMMAND J  &mt RIGHT_ALT K  &mt RCTRL L  &mt CAPS CARET  &mt RIGHT_SHIFT SQT
-&kp LEFT_COMMAND  &kp Z       &kp X        &kp C           &kp V               &kp B                        &mkp LCLK        &mkp RCLK     &kp LC(LA(LEFT))         &kp LC(LA(RIGHT))  &kp N    &kp M                &kp COMMA        &kp DOT      &kp TILDE       &kp GRAVE
-                                           &trans          &msc SCRL_UP        &sht LEFT_SHIFT LEFT_SHIFT   &lt 1 BACKSPACE  &lt 2 DELETE  &lt 4 ENTER              &lt 3 SPACE        &kp TAB  &msc SCRL_DOWN       &trans
+&kp ESC           &kp Q       &kp W        &kp E           &kp R               &kp T                                                                                           &kp Y    &kp U                &kp I            &kp O        &kp P           &kp TILDE
+&kp LSHFT         &mt CAPS A  &mt LCTRL S  &mt LEFT_ALT D  &mt LEFT_COMMAND F  &kp G                                                                                           &kp H    &mt RIGHT_COMMAND J  &mt RIGHT_ALT K  &mt RCTRL L  &mt CAPS CARET  &mt RIGHT_SHIFT SQT
+&kp LEFT_COMMAND  &kp Z       &kp X        &kp C           &kp V               &kp B                       &mkp LCLK        &mkp RCLK     &kp LC(LA(LEFT))  &kp LC(LA(RIGHT))  &kp N    &kp M                &kp COMMA        &kp DOT      &kp SLASH       &kp GRAVE
+                                           &trans          &msc SCRL_UP        &sht LEFT_SHIFT LEFT_SHIFT  &lt 1 BACKSPACE  &lt 2 DELETE  &lt 4 ENTER       &lt 3 SPACE        &kp TAB  &msc SCRL_DOWN       &trans
             >;
 
             sensor-bindings =
@@ -59,7 +59,7 @@
 &trans          &kp LT                &kp LEFT_BRACE     &kp LEFT_BRACKET   &kp LEFT_PARENTHESIS     &trans                                                 &trans  &kp RIGHT_PARENTHESIS      &kp RIGHT_BRACKET    &kp RIGHT_BRACE         &kp GREATER_THAN  &trans
 &kp LEFT_SHIFT  &mt CAPS EXCLAMATION  &mt LCTRL AT_SIGN  &mt LEFT_ALT HASH  &mt LEFT_COMMAND DOLLAR  &trans                                                 &trans  &mt RIGHT_COMMAND PERCENT  &mt RIGHT_ALT CARET  &mt RIGHT_CONTROL AMPS  &mt CAPS STAR     &kp RIGHT_SHIFT
 &trans          &kp UNDERSCORE        &kp SEMICOLON      &kp SINGLE_QUOTE   &kp BACKSLASH            &trans  &trans  &trans  &kp EXCLAMATION  &kp QUESTION  &trans  &kp SLASH                  &kp DOUBLE_QUOTES    &kp COLON               &kp PIPE          &trans
-                                                         &trans             &trans                   &trans  &trans  &trans  &kp PERIOD       &kp COMMA     &trans  &trans                     &trans
+                                                         &trans             &trans                   &trans  &trans  &trans  &kp UNDERSCORE   &kp MINUS     &trans  &trans                     &trans
             >;
 
             label = "Symbols";
@@ -67,10 +67,10 @@
 
         num_layer {
             bindings = <
-&trans          &trans        &kp LESS_THAN                      &kp EQUAL            &kp GREATER_THAN                    &trans                                       &trans  &kp KP_NUMBER_7                &kp KP_NUMBER_8            &kp KP_NUMBER_9                &trans        &trans
-&kp LEFT_SHIFT  &kp CAPSLOCK  &mt LEFT_CONTROL LEFT_PARENTHESIS  &mt LEFT_ALT PERIOD  &mt LEFT_COMMAND RIGHT_PARENTHESIS  &trans                                       &trans  &mt RIGHT_COMMAND KP_NUMBER_4  &mt RIGHT_ALT KP_NUMBER_5  &mt RIGHT_CONTROL KP_NUMBER_6  &kp CAPSLOCK  &kp RIGHT_SHIFT
-&trans          &trans        &kp SLASH                          &kp COMMA            &kp ASTERISK                        &trans  &trans  &trans  &kp SLASH  &kp STAR  &trans  &kp KP_NUMBER_1                &kp KP_NUMBER_2            &kp KP_NUMBER_3                &trans        &trans
-                                                                 &trans               &trans                              &trans  &trans  &trans  &kp MINUS  &kp PLUS  &trans  &trans                         &kp KP_NUMBER_0
+&trans          &trans        &kp LESS_THAN                      &kp EQUAL            &kp GREATER_THAN                    &trans                                       &trans  &kp NUMBER_7               &kp NUMBER_8            &kp NUMBER_9                &trans        &trans
+&kp LEFT_SHIFT  &kp CAPSLOCK  &mt LEFT_CONTROL LEFT_PARENTHESIS  &mt LEFT_ALT PERIOD  &mt LEFT_COMMAND RIGHT_PARENTHESIS  &trans                                       &trans  &mt LEFT_COMMAND NUMBER_4  &mt RIGHT_ALT NUMBER_5  &mt RIGHT_CONTROL NUMBER_6  &kp CAPSLOCK  &kp RIGHT_SHIFT
+&trans          &trans        &kp SLASH                          &kp COMMA            &kp ASTERISK                        &trans  &trans  &trans  &kp SLASH  &kp STAR  &trans  &kp NUMBER_1               &kp NUMBER_2            &kp NUMBER_3                &trans        &trans
+                                                                 &trans               &trans                              &trans  &trans  &trans  &kp MINUS  &kp PLUS  &trans  &kp N0                     &trans
             >;
 
             label = "Numbers";
@@ -78,10 +78,10 @@
 
         nav_layer {
             bindings = <
-&trans          &trans        &kp LA(LC(LG(LEFT)))                 &kp LA(LG(UP_ARROW))       &kp LA(LC(LG(RIGHT)))           &trans                                                       &kp PG_UP  &kp HOME          &kp UP            &kp END           &kp LA(UP)        &trans
-&kp LEFT_SHIFT  &kp CAPSLOCK  &mt LEFT_CONTROL LA(LG(LEFT_ARROW))  &mt LEFT_ALT LA(LG(DOWN))  &mt LEFT_COMMAND LA(LG(RIGHT))  &trans                                                       &kp PG_DN  &kp LEFT          &kp DOWN          &kp RIGHT         &kp LA(DOWN)      &trans
-&trans          &trans        &kp LA(LC(LG(LEFT)))                 &trans                     &kp LA(LC(LG(RIGHT)))           &trans  &kp LA(LS(LEFT))  &kp LA(LS(RIGHT))  &trans  &trans  &trans     &kp LC(NUMBER_1)  &kp LC(NUMBER_2)  &kp LC(NUMBER_3)  &kp LC(NUMBER_4)  &trans
-                                                                   &trans                     &trans                          &trans  &kp LA(LEFT)      &kp LA(RIGHT)      &trans  &trans  &trans     &trans            &trans
+&trans          &trans            &kp LA(LC(LG(LEFT)))                 &kp LA(LG(UP_ARROW))       &kp LA(LC(LG(RIGHT)))           &trans                                                       &kp PG_UP    &kp HOME          &kp UP            &kp END           &kp K_SCROLL_UP    &trans
+&kp LEFT_SHIFT  &kp CAPSLOCK      &mt LEFT_CONTROL LA(LG(LEFT_ARROW))  &mt LEFT_ALT LA(LG(DOWN))  &mt LEFT_COMMAND LA(LG(RIGHT))  &trans                                                       &kp PG_DN    &kp LEFT          &kp DOWN          &kp RIGHT         &kp K_SCROLL_DOWN  &trans
+&trans          &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))                    &kp LC(LEFT)               &kp LC(RIGHT)                   &trans  &kp LA(LS(LEFT))  &kp LA(LS(RIGHT))  &trans  &trans  &kp LG(TAB)  &kp LC(NUMBER_1)  &kp LC(NUMBER_2)  &kp LC(NUMBER_3)  &kp LC(NUMBER_4)   &trans
+                                                                       &trans                     &trans                          &trans  &kp LA(LEFT)      &kp LA(RIGHT)      &trans  &trans  &trans       &trans            &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LC(LEFT) LC(RIGHT)>;
@@ -90,10 +90,10 @@
 
         special_layer {
             bindings = <
-&kp C_SLEEP           &kp F1  &kp F2   &kp F3   &kp F4   &trans                                              &kp C_BRI_INC  &kp C_VOLUME_DOWN  &kp C_MUTE   &kp C_VOLUME_UP  &rgb_ug RGB_BRD  &rgb_ug RGB_BRI
-&kp LG(LS(NUMBER_3))  &kp F5  &kp F6   &kp F7   &kp F8   &trans                                              &kp C_BRI_DEC  &kp C_PREVIOUS     &kp C_PAUSE  &kp C_NEXT       &rgb_ug RGB_HUD  &rgb_ug RGB_HUI
-&kp LG(LS(NUMBER_4))  &kp F9  &kp F10  &kp F11  &kp F12  &trans     &kp LG(Z)   &kp LG(LS(Z))   &trans  &trans  &trans         &trans             &trans       &trans           &rgb_ug RGB_SAD  &rgb_ug RGB_SAI
-                                       &trans   &trans   &kp LG(X)  &kp LG(C)  &kp LG(V)  &trans  &trans  &trans         &trans             &trans
+&kp C_SLEEP           &kp F1  &kp F2   &kp F3   &kp F4   &trans                                               &kp C_BRI_INC  &kp C_VOLUME_DOWN  &kp C_MUTE        &kp C_VOLUME_UP  &rgb_ug RGB_BRD  &rgb_ug RGB_BRI
+&kp LG(LS(NUMBER_3))  &kp F5  &kp F6   &kp F7   &kp F8   &trans                                               &kp C_BRI_DEC  &kp K_PREVIOUS     &kp K_PLAY_PAUSE  &kp K_NEXT       &rgb_ug RGB_HUD  &rgb_ug RGB_HUI
+&kp LG(LS(NUMBER_4))  &kp F9  &kp F10  &kp F11  &kp F12  &trans     &kp LG(Z)  &kp LG(LS(Z))  &trans  &trans  &trans         &trans             &trans            &trans           &rgb_ug RGB_SAD  &rgb_ug RGB_SAI
+                                       &trans   &trans   &kp LG(X)  &kp LG(C)  &kp LG(V)      &trans  &trans  &trans         &trans             &trans
             >;
         };
     };
