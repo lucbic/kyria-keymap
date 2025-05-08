@@ -8,9 +8,18 @@
     chain-length = <31>;
 };
 
-&sl { release-after-ms = <1000>; };
-
 / {
+    behaviors {
+        sht: shift_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <0>;
+            flavor = "hold-preferred";
+            bindings = <&kp>, <&sk>;
+        };
+    };
+
     combos {
         compatible = "zmk,combos";
 
@@ -32,10 +41,10 @@
 
         base_layer {
             bindings = <
-&kp ESC           &kp Q       &kp W        &kp E           &kp R               &kp T                                                                               &kp Y    &kp U                &kp I            &kp O        &kp P           &kp ESC
-&kp LSHFT         &mt CAPS A  &mt LCTRL S  &mt LEFT_ALT D  &mt LEFT_COMMAND F  &kp G                                                                               &kp H    &mt RIGHT_COMMAND J  &mt RIGHT_ALT K  &mt RCTRL L  &mt CAPS CARET  &mt RIGHT_SHIFT SQT
-&kp LEFT_COMMAND  &kp Z       &kp X        &kp C           &kp V               &kp B           &mkp LCLK        &mkp RCLK     &kp LC(LA(LEFT))  &kp LC(LA(RIGHT))  &kp N    &kp M                &kp COMMA        &kp DOT      &kp TILDE       &kp GRAVE
-                                           &trans          &msc SCRL_UP        &sk LEFT_SHIFT  &lt 1 BACKSPACE  &lt 2 DELETE  &lt 4 ENTER       &lt 3 SPACE        &kp TAB  &msc SCRL_DOWN       &trans
+&kp ESC           &kp Q       &kp W        &kp E           &kp R               &kp T                                                                                &kp Y    &kp U                &kp I            &kp O        &kp P           &kp ESC
+&kp LSHFT         &mt CAPS A  &mt LCTRL S  &mt LEFT_ALT D  &mt LEFT_COMMAND F  &kp G                                                                                &kp H    &mt RIGHT_COMMAND J  &mt RIGHT_ALT K  &mt RCTRL L  &mt CAPS CARET  &mt RIGHT_SHIFT SQT
+&kp LEFT_COMMAND  &kp Z       &kp X        &kp C           &kp V               &kp B                        &mkp LCLK        &mkp RCLK     &kp LC(LA(LEFT))         &kp LC(LA(RIGHT))  &kp N    &kp M                &kp COMMA        &kp DOT      &kp TILDE       &kp GRAVE
+                                           &trans          &msc SCRL_UP        &sht LEFT_SHIFT LEFT_SHIFT   &lt 1 BACKSPACE  &lt 2 DELETE  &lt 4 ENTER              &lt 3 SPACE        &kp TAB  &msc SCRL_DOWN       &trans
             >;
 
             sensor-bindings =
@@ -81,10 +90,10 @@
 
         special_layer {
             bindings = <
-&kp C_SLEEP           &kp F1  &kp F2   &kp F3   &kp F4   &trans                                              &kp C_BRI_INC  &kp C_VOLUME_DOWN  &kp C_MUTE   &kp C_VOLUME_UP  &rgb_ug RGB_BRI  &rgb_ug RGB_BRI
+&kp C_SLEEP           &kp F1  &kp F2   &kp F3   &kp F4   &trans                                              &kp C_BRI_INC  &kp C_VOLUME_DOWN  &kp C_MUTE   &kp C_VOLUME_UP  &rgb_ug RGB_BRD  &rgb_ug RGB_BRI
 &kp LG(LS(NUMBER_3))  &kp F5  &kp F6   &kp F7   &kp F8   &trans                                              &kp C_BRI_DEC  &kp C_PREVIOUS     &kp C_PAUSE  &kp C_NEXT       &rgb_ug RGB_HUD  &rgb_ug RGB_HUI
-&kp LG(LS(NUMBER_4))  &kp F9  &kp F10  &kp F11  &kp F12  &trans     &kp K_UNDO  &kp K_REDO   &trans  &trans  &trans         &trans             &trans       &trans           &rgb_ug RGB_SAD  &rgb_ug RGB_SAI
-                                       &trans   &trans   &kp K_CUT  &kp K_COPY  &kp K_PASTE  &trans  &trans  &trans         &trans             &trans
+&kp LG(LS(NUMBER_4))  &kp F9  &kp F10  &kp F11  &kp F12  &trans     &kp LG(Z)   &kp LG(LS(Z))   &trans  &trans  &trans         &trans             &trans       &trans           &rgb_ug RGB_SAD  &rgb_ug RGB_SAI
+                                       &trans   &trans   &kp LG(X)  &kp LG(C)  &kp LG(V)  &trans  &trans  &trans         &trans             &trans
             >;
         };
     };
