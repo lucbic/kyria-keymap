@@ -1,3 +1,5 @@
+#include <input/processors.dtsi>
+
 &pro_micro_i2c {
     status = "disabled";
     glidepoint0: glidepoint@2a {
@@ -7,7 +9,7 @@
         dr-gpios = <&pro_micro 0 (GPIO_ACTIVE_HIGH)>;
         y-invert;
 
-        sensitivity = "4x";
+        sensitivity = "1x";
     };
 
 };
@@ -25,6 +27,7 @@
 
     glidepoint_listener: glidepoint_listener {
         compatible = "zmk,input-listener";
+        input-processors = <&zip_xy_scaler 2 1>;
         status = "disabled";
         device = <&glidepoint_split>;
     };

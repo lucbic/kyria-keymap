@@ -18,6 +18,13 @@
             flavor = "hold-preferred";
             bindings = <&kp>, <&sk>;
         };
+
+        emw: encoder_mousewheel {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            tap-ms = <20>;
+            bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+        };
     };
 
     combos {
@@ -44,12 +51,12 @@
 &kp ESC           &kp Q       &kp W        &kp E           &kp R               &kp T                                                                                           &kp Y    &kp U                &kp I            &kp O        &kp P           &kp TILDE
 &kp LSHFT         &mt CAPS A  &mt LCTRL S  &mt LEFT_ALT D  &mt LEFT_COMMAND F  &kp G                                                                                           &kp H    &mt RIGHT_COMMAND J  &mt RIGHT_ALT K  &mt RCTRL L  &mt CAPS CARET  &mt RIGHT_SHIFT SQT
 &kp LEFT_COMMAND  &kp Z       &kp X        &kp C           &kp V               &kp B                       &mkp LCLK        &mkp RCLK     &kp LC(LA(LEFT))  &kp LC(LA(RIGHT))  &kp N    &kp M                &kp COMMA        &kp DOT      &kp SLASH       &kp GRAVE
-                                           &trans          &msc SCRL_UP        &sht LEFT_SHIFT LEFT_SHIFT  &lt 1 BACKSPACE  &lt 2 DELETE  &lt 4 ENTER       &lt 3 SPACE        &kp TAB  &msc SCRL_DOWN       &trans
+                                           &trans          &msc SCRL_DOWN        &sht LEFT_SHIFT LEFT_SHIFT  &lt 1 BACKSPACE  &lt 2 DELETE  &lt 4 ENTER       &lt 3 SPACE        &kp TAB  &msc SCRL_UP       &trans
             >;
 
             sensor-bindings =
                 <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&inc_dec_kp K_SCROLL_DOWN K_SCROLL_UP>;
+                <&emw>;
 
             label = "Base";
         };
