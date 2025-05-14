@@ -54,7 +54,9 @@
                                            &trans          &msc SCRL_DOWN      &sht LEFT_SHIFT LEFT_SHIFT  &lt 1 BACKSPACE  &lt 2 DELETE  &lt 4 ENTER       &lt 3 SPACE        &kp TAB  &msc SCRL_UP         &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>, <&emw>;
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>;
 
             label = "Base";
         };
