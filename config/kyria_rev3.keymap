@@ -26,6 +26,14 @@
             tap-ms = <20>;
             bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
         };
+        
+        // Add a mod-morph behavior to handle shift key with warp
+        shift_to_warp: shift_to_warp {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&trans>, <&to 5>; // Switch to warp layer when shift is pressed
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
 
     combos {
@@ -103,6 +111,20 @@
 &kp LG(LS(NUMBER_4))  &kp F9  &kp F10  &kp F11  &kp F12  &none      &kp LG(Z)  &kp LG(LS(Z))  &none  &none  &none          &none              &none             &none            &rgb_ug RGB_SAD  &rgb_ug RGB_SAI
                                        &none    &none    &kp LG(X)  &kp LG(C)  &kp LG(V)      &none  &none  &none          &none              &none
             >;
+        };
+
+        // Add a warp layer for fast mouse movement
+        warp_layer {
+            bindings = <
+// Same layout as your base layer, but leave most keys as &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                                      &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                                      &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans  &trans  &to 0   &trans  &trans  &trans  &trans  &trans
+            >;
+            
+            // This layer would have the fast movement (warp) behavior
+            label = "Warp";
         };
     };
 };

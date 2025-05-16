@@ -1,4 +1,6 @@
+#include <dt-bindings/zmk/pointing.h>
 #include <input/processors.dtsi>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 
 &pro_micro_i2c {
     status = "disabled";
@@ -24,17 +26,53 @@
         };
     };
 
+    // Custom scaler for mouse scrolling
+    zip_scroll_scaler: zip_scroll_scaler {
+        compatible = "zmk,input-processor-scaler";
+        #input-processor-cells = <2>;
+        type = <INPUT_EV_REL>;
+        codes = <0x08 0x06>;
+        track-remainders;
+    };
+
     glidepoint_listener: glidepoint_listener {
         compatible = "zmk,input-listener";
-        input-processors = <&zip_xy_scaler 4 4>;
+        input-processors = <&zip_x_scaler 3 2>, <&zip_y_scaler 3 1>;
         status = "disabled";
         device = <&glidepoint_split>;
         
-        // Pointing configuration
-        acceleration-exponent = <2>;      // Increase for higher acceleration (default: 1)
-        time-to-max-speed-ms = <300>;     // Decrease for faster ramp-up to max speed (default: 500)
-        scroll-layer = <2>;               // Optional: layer on which scrolling is active
-        scroll-speed = <20>;              // Default is 10, higher is faster
+        // Scroll setup using layer override
+        scroll_mode {
+            layers = <1>;  // Use layer 2 for scrolling
+            input-processors = <&zip_xy_to_scroll_mapper>;
+        };
+
+        // Fast movement mode (warp)
+        warp {
+            layers = <5>;  // Use layer 5 for warp functionality (fast movement)
+            input-processors = <&zip_x_scaler 6 4>, <&zip_y_scaler 6 1>;
+            process-next;
+        };
+
+        // Precision mode for slower movement
+        precision {
+            layers = <2>;
+            input-processors = <&zip_x_scaler 1 8>, <&zip_y_scaler 1 4>;
+        };
+    };
+    
+    // Mouse move behavior customization
+    mmv {
+        acceleration-exponent = <1>;      // Default: 1
+        time-to-max-speed-ms = <500>;     // Lower = faster ramp-up to max speed (default: 300)
+        delay-ms = <0>;                   // Default: 0
+    };
+
+    // Mouse scroll behavior customization
+    mwh {
+        acceleration-exponent = <1>;      // Default: 0
+        time-to-max-speed-ms = <300>;     // Default: 300
+        delay-ms = <0>;                   // Default: 0
     };
     
     pointing_devices {
@@ -43,6 +81,8 @@
             compatible = "cirque,pinnacle";
             status = "okay";
             zephyr,drdy-gpios = <&gpio0 9 GPIO_ACTIVE_HIGH>;
+            bus = <&pro_micro_i2c>;
+            reg = <0x2a>;
         };
     };
 };
