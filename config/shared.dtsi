@@ -11,7 +11,6 @@
 
         sensitivity = "1x";
     };
-
 };
 
 / {
@@ -27,8 +26,26 @@
 
     glidepoint_listener: glidepoint_listener {
         compatible = "zmk,input-listener";
-        input-processors = <&zip_xy_scaler 3 2>;
+        input-processors = <&zip_xy_scaler 4 4>;
         status = "disabled";
         device = <&glidepoint_split>;
+        
+        // Pointing configuration
+        acceleration-exponent = <2>;      // Increase for higher acceleration (default: 1)
+        time-to-max-speed-ms = <300>;     // Decrease for faster ramp-up to max speed (default: 500)
+        scroll-layer = <2>;               // Optional: layer on which scrolling is active
+        scroll-speed = <20>;              // Default is 10, higher is faster
+    };
+    
+    pointing_devices {
+        compatible = "zmk,pointing-devices";
+        pinnacle_trackpad: pinnacle_trackpad {
+            compatible = "cirque,pinnacle";
+            status = "okay";
+            zephyr,drdy-gpios = <&gpio0 9 GPIO_ACTIVE_HIGH>;
+        };
     };
 };
+
+/* Create the pointing node alias for the pinnacle trackpad */
+pointing: &glidepoint_listener {};
