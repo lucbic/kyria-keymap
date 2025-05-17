@@ -26,18 +26,9 @@
         };
     };
 
-    // Custom scaler for mouse scrolling
-    zip_scroll_scaler: zip_scroll_scaler {
-        compatible = "zmk,input-processor-scaler";
-        #input-processor-cells = <2>;
-        type = <INPUT_EV_REL>;
-        codes = <0x08 0x06>;
-        track-remainders;
-    };
-
     glidepoint_listener: glidepoint_listener {
         compatible = "zmk,input-listener";
-        input-processors = <&zip_x_scaler 3 2>, <&zip_y_scaler 3 1>;
+        input-processors = <&zip_xy_scaler 3 2>;
         status = "disabled";
         device = <&glidepoint_split>;
         
@@ -50,14 +41,13 @@
         // Fast movement mode (warp)
         warp {
             layers = <5>;  // Use layer 5 for warp functionality (fast movement)
-            input-processors = <&zip_x_scaler 6 4>, <&zip_y_scaler 6 1>;
-            process-next;
+            input-processors = <&zip_xy_scaler 4 1>;
         };
 
         // Precision mode for slower movement
         precision {
             layers = <2>;
-            input-processors = <&zip_x_scaler 1 8>, <&zip_y_scaler 1 4>;
+            input-processors = <&zip_xy_scaler 5 4>;
         };
     };
     
@@ -69,23 +59,10 @@
     };
 
     // Mouse scroll behavior customization
-    mwh {
+    msc {
         acceleration-exponent = <1>;      // Default: 0
         time-to-max-speed-ms = <300>;     // Default: 300
         delay-ms = <0>;                   // Default: 0
-    };
-    
-    pointing_devices {
-        compatible = "zmk,pointing-devices";
-        pinnacle_trackpad: pinnacle_trackpad {
-            compatible = "cirque,pinnacle";
-            status = "okay";
-            zephyr,drdy-gpios = <&gpio0 9 GPIO_ACTIVE_HIGH>;
-            bus = <&pro_micro_i2c>;
-            reg = <0x2a>;
-        };
+
     };
 };
-
-/* Create the pointing node alias for the pinnacle trackpad */
-pointing: &glidepoint_listener {};
