@@ -6,6 +6,8 @@ manifest:
       url-base: https://github.com/englmaxi
     - name: petejohanson
       url-base: https://github.com/petejohanson
+    - name: urob
+      url-base: https://github.com/urob
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -16,6 +18,9 @@ manifest:
       revision: main
     - name: cirque-input-module
       remote: petejohanson
+      revision: main
+    - name: zmk-helpers
+      remote: urob
       revision: main
   self:
     path: config
