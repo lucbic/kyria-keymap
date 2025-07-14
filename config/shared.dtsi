@@ -11,6 +11,7 @@
         status = "disabled";
         dr-gpios = <&pro_micro 0 (GPIO_ACTIVE_HIGH)>;
         y-invert;
+        rotate-90;
 
         sensitivity = "1x";
     };
@@ -61,8 +62,8 @@
 
     // Mouse scroll behavior customization
     msc {
-        acceleration-exponent = <1>;      // Default: 0
-        time-to-max-speed-ms = <300>;     // Default: 300
+        acceleration-exponent = <0>;      // Default: 0
+        time-to-max-speed-ms = <0>;     // Default: 300
         delay-ms = <0>;                   // Default: 0
 
     };
