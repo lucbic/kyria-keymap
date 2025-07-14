@@ -11,7 +11,7 @@
 #define KEYS_RT RH0 RH1 RH2 RH3 RH4
 #define HM_TAPPING_TERM 300
 #define HM_TAPPING_TERM_FAST 200
-#define HM_PRIOR_IDLE 150
+#define HM_PRIOR_IDLE 100
 
 &led_strip {
     chain-length = <6>;
@@ -63,7 +63,7 @@
             bindings = <&kp>, <&kp>;
 
             flavor = "balanced";
-            tapping-term-ms = <HM_TAPPING_TERM>;
+            tapping-term-ms = <HM_TAPPING_TERM_FAST>;
             quick-tap-ms = <175>;                // repeat on tap-into-hold
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
             hold-trigger-key-positions = <KEYS_R KEYS_RT>;
@@ -76,7 +76,7 @@
             bindings = <&kp>, <&kp>;
 
             flavor = "balanced";
-            tapping-term-ms = <HM_TAPPING_TERM>;
+            tapping-term-ms = <HM_TAPPING_TERM_FAST>;
             quick-tap-ms = <175>;
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
             hold-trigger-key-positions = <KEYS_L KEYS_LT>;
