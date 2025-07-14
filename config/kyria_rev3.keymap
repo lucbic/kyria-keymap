@@ -106,7 +106,7 @@
         base_layer {
             bindings = <
 &kp ESC           &kp Q         &kp W          &kp E             &kp R                 &kp T                                                                                       &kp Y    &kp U                  &kp I              &kp O          &kp P             &kp TILDE
-&kp LSHFT         &hm_l CAPS A  &hm_l LCTRL S  &hm_l LEFT_ALT D  &hm_l LEFT_COMMAND F  &kp G                                                                                       &kp H    &hm_r RIGHT_COMMAND J  &hm_r RIGHT_ALT K  &hm_r RCTRL L  &hm_r CAPS CARET  &hm_r RIGHT_SHIFT SQT
+&kp LSHFT         &hm_l LCTRL A  &hm_l LEFT_ALT S  &hm_l LEFT_SHIFT D  &hm_l LEFT_COMMAND F  &kp G                                                                                       &kp H    &hm_r RIGHT_COMMAND J  &hm_r RIGHT_SHIFT K  &hm_r RIGHT_ALT L  &hm_r RCTRL CARET  &hm_r RIGHT_SHIFT SQT
 &kp LEFT_COMMAND  &kp Z         &kp X          &kp C             &kp V                 &kp B              &mkp LCLK        &mkp RCLK     &kp LC(BACKSLASH)  &kp LC(LS(BACKSLASH))  &kp N    &kp M                  &kp COMMA          &kp DOT        &kp SLASH         &kp GRAVE
                                                &trans            &kp LC(LA(LEFT))      &sht 5 LEFT_SHIFT  &lt 1 BACKSPACE  &lt 2 DELETE  &lt 4 ENTER        &lt 3 SPACE            &kp TAB  &kp LC(LA(RIGHT))      &trans
             >;
@@ -121,7 +121,7 @@
         symbols_layer {
             bindings = <
 &none           &kp LT                  &kp LEFT_BRACE       &kp LEFT_BRACKET     &kp LEFT_PARENTHESIS       &none                                               &none  &kp RIGHT_PARENTHESIS        &kp RIGHT_BRACKET      &kp RIGHT_BRACE           &kp GREATER_THAN  &none
-&kp LEFT_SHIFT  &hm_l CAPS EXCLAMATION  &hm_l LCTRL AT_SIGN  &hm_l LEFT_ALT HASH  &hm_l LEFT_COMMAND DOLLAR  &none                                               &none  &hm_r RIGHT_COMMAND PERCENT  &hm_r RIGHT_ALT CARET  &hm_r RIGHT_CONTROL AMPS  &hm_r CAPS STAR   &kp RIGHT_SHIFT
+&kp LEFT_SHIFT  &hm_l LCTRL EXCLAMATION  &hm_l LEFT_ALT AT_SIGN  &hm_l LEFT_SHIFT HASH  &hm_l LEFT_COMMAND DOLLAR  &none                                               &none  &hm_r RIGHT_COMMAND PERCENT  &hm_r RIGHT_SHIFT CARET  &hm_r RIGHT_ALT AMPS  &hm_r RCTRL STAR   &kp RIGHT_SHIFT
 &none           &kp UNDERSCORE          &kp SEMICOLON        &kp SINGLE_QUOTE     &kp BACKSLASH              &none  &none  &none  &kp EXCLAMATION  &kp QUESTION  &none  &kp SLASH                    &kp DOUBLE_QUOTES      &kp COLON                 &kp PIPE          &none
                                                              &none                &none                      &none  &none  &none  &kp UNDERSCORE   &kp MINUS     &none  &none                        &none
             >;
@@ -132,7 +132,7 @@
         num_layer {
             bindings = <
 &none           &none         &kp LESS_THAN                        &kp EQUAL              &kp GREATER_THAN                      &none                                     &none  &kp NUMBER_7                 &kp NUMBER_8              &kp NUMBER_9                  &none         &none
-&kp LEFT_SHIFT  &kp CAPSLOCK  &hm_l LEFT_CONTROL LEFT_PARENTHESIS  &hm_l LEFT_ALT PERIOD  &hm_l LEFT_COMMAND RIGHT_PARENTHESIS  &none                                     &none  &hm_r LEFT_COMMAND NUMBER_4  &hm_r RIGHT_ALT NUMBER_5  &hm_r RIGHT_CONTROL NUMBER_6  &kp CAPSLOCK  &kp RIGHT_SHIFT
+&kp LEFT_SHIFT  &kp CAPSLOCK  &hm_l LEFT_ALT LEFT_PARENTHESIS  &hm_l LEFT_SHIFT PERIOD  &hm_l LEFT_COMMAND RIGHT_PARENTHESIS  &none                                     &none  &hm_r RIGHT_COMMAND NUMBER_4  &hm_r RIGHT_SHIFT NUMBER_5  &hm_r RIGHT_ALT NUMBER_6  &kp CAPSLOCK  &kp RIGHT_SHIFT
 &none           &none         &kp SLASH                            &kp COMMA              &kp ASTERISK                          &none  &none  &none  &kp SLASH  &kp STAR  &none  &kp NUMBER_1                 &kp NUMBER_2              &kp NUMBER_3                  &none         &none
                                                                    &none                  &none                                 &none  &none  &none  &kp MINUS  &kp PLUS  &none  &kp N0                       &none
             >;
@@ -143,7 +143,7 @@
         nav_layer {
             bindings = <
 &none           &none             &kp LA(LC(LG(LEFT)))                   &kp LA(LG(UP_ARROW))         &kp LA(LC(LG(RIGHT)))             &none                                                     &kp PG_UP    &kp HOME          &kp UP            &kp END           &kp K_SCROLL_UP    &none
-&kp LEFT_SHIFT  &kp CAPSLOCK      &hm_l LEFT_CONTROL LA(LG(LEFT_ARROW))  &hm_l LEFT_ALT LA(LG(DOWN))  &hm_l LEFT_COMMAND LA(LG(RIGHT))  &none                                                     &kp PG_DN    &kp LEFT          &kp DOWN          &kp RIGHT         &kp K_SCROLL_DOWN  &none
+&kp LEFT_SHIFT  &kp CAPSLOCK      &hm_l LEFT_ALT LA(LG(LEFT_ARROW))  &hm_l LEFT_SHIFT LA(LG(DOWN))  &hm_l LEFT_COMMAND LA(LG(RIGHT))  &none                                                     &kp PG_DN    &kp LEFT          &kp DOWN          &kp RIGHT         &kp K_SCROLL_DOWN  &none
 &none           &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))                      &kp LC(LEFT)                 &kp LC(RIGHT)                     &none  &kp LA(LS(LEFT))  &kp LA(LS(RIGHT))  &none  &none  &kp LG(TAB)  &kp LC(NUMBER_1)  &kp LC(NUMBER_2)  &kp LC(NUMBER_3)  &kp LC(NUMBER_4)   &none
                                                                          &none                        &kp LEFT_SHIFT                    &none  &kp LA(LEFT)      &kp LA(RIGHT)      &none  &none  &none        &none             &none
             >;
@@ -166,7 +166,7 @@
         warp_layer {
             bindings = <
 &kp ESC           &kp LS(Q)         &kp LS(W)          &kp LS(E)             &kp LS(R)                 &kp LS(T)                                                                                       &kp LS(Y)  &kp LS(U)                  &kp LS(I)              &kp LS(O)          &kp LS(P)             &kp TILDE
-&kp LSHFT         &hm_l CAPS LS(A)  &hm_l LCTRL LS(S)  &hm_l LEFT_ALT LS(D)  &hm_l LEFT_COMMAND LS(F)  &kp LS(G)                                                                                       &kp LS(H)  &hm_r RIGHT_COMMAND LS(J)  &hm_r RIGHT_ALT LS(K)  &hm_r RCTRL LS(L)  &hm_r CAPS LS(CARET)  &hm_r RIGHT_SHIFT LS(SQT)
+&kp LSHFT         &hm_l LCTRL LS(A)  &hm_l LEFT_ALT LS(S)  &hm_l LEFT_SHIFT LS(D)  &hm_l LEFT_COMMAND LS(F)  &kp LS(G)                                                                                       &kp LS(H)  &hm_r RIGHT_COMMAND LS(J)  &hm_r RIGHT_SHIFT LS(K)  &hm_r RIGHT_ALT LS(L)  &hm_r RCTRL LS(CARET)  &hm_r RIGHT_SHIFT LS(SQT)
 &kp LEFT_COMMAND  &kp LS(Z)         &kp LS(X)          &kp LS(C)             &kp LS(V)                 &kp LS(B)          &mkp LCLK        &mkp RCLK     &kp LC(LS(BACKSLASH))  &kp LC(LS(BACKSLASH))  &kp LS(N)  &kp LS(M)                  &kp LS(COMMA)          &kp LS(DOT)        &kp LS(SLASH)         &kp LS(GRAVE)
                                                        &trans                &kp LC(LA(LEFT))          &sht 5 LEFT_SHIFT  &lt 1 BACKSPACE  &lt 2 DELETE  &lt 4 ENTER            &lt 3 SPACE            &kp TAB    &kp LC(LA(RIGHT))          &trans
             >;
