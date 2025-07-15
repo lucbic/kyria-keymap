@@ -43,13 +43,13 @@
         // Fast movement mode (warp)
         warp {
             layers = <5>;  // Use layer 5 for warp functionality (fast movement)
-            input-processors = <&zip_xy_scaler 2 1>;
+            input-processors = <&zip_xy_scaler 3 1>;
         };
 
         // Precision mode for slower movement
         precision {
             layers = <2>;
-            input-processors = <&zip_xy_scaler 5 4>;
+            input-processors = <&zip_xy_scaler 1 1>;
         };
     };
     
