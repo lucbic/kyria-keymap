@@ -52,18 +52,4 @@
             input-processors = <&zip_xy_scaler 1 1>;
         };
     };
-    
-    // Mouse move behavior customization
-    mmv {
-        acceleration-exponent = <1>;      // Default: 1
-        time-to-max-speed-ms = <500>;     // Lower = faster ramp-up to max speed (default: 300)
-        delay-ms = <0>;                   // Default: 0
-    };
-
-    // Mouse scroll behavior customization
-    msc {
-        acceleration-exponent = <0>;      // Default: 0
-        time-to-max-speed-ms = <0>;     // Default: 300
-        delay-ms = <0>;                   // Default: 0
-    };
 };
