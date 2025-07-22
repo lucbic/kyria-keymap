@@ -1,0 +1,13 @@
+// Mouse behavior customization
+&mmv {
+    acceleration-exponent = <1>;      // Default: 1
+    time-to-max-speed-ms = <500>;     // Slower ramp-up for more control (default: 300)
+    delay-ms = <0>;                   // Default: 0
+};
+
+// Mouse scroll behavior customization
+&msc {
+    acceleration-exponent = <0>;      // Default: 0 - no acceleration for scrolling
+    time-to-max-speed-ms = <0>;       // Immediate max speed (default: 300)
+    delay-ms = <0>;                   // Default: 0
+};
