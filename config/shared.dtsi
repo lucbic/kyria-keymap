@@ -37,7 +37,7 @@
         // Scroll setup using layer override
         scroll_mode {
             layers = <1>;  // Use layer 2 for scrolling
-            input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT | INPUT_TRANSFORM_X_INVERT)>, <&zip_scroll_scaler 1 14>;
+            input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT | INPUT_TRANSFORM_X_INVERT)>, <&zip_scroll_scaler 1 20>;
         };
 
         // Fast movement mode (warp)
@@ -65,6 +65,5 @@
         acceleration-exponent = <0>;      // Default: 0
         time-to-max-speed-ms = <0>;     // Default: 300
         delay-ms = <0>;                   // Default: 0
-
     };
 };
