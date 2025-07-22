@@ -137,7 +137,7 @@
         };
 
         DedentSelection {
-            bindings = <&kp LG(RIGHT_BRACKET)>;
+            bindings = <&kp LG(LEFT_BRACKET)>;
             key-positions = <32 45>;
             layers = <1>;
         };
