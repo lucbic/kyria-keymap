@@ -30,14 +30,14 @@
 
     glidepoint_listener: glidepoint_listener {
         compatible = "zmk,input-listener";
-        input-processors = <&zip_xy_scaler 3 2>;
+        input-processors = <&zip_xy_scaler 4 3>;
         status = "disabled";
         device = <&glidepoint_split>;
         
         // Scroll setup using layer override
         scroll_mode {
             layers = <1>;  // Use layer 2 for scrolling
-            input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT | INPUT_TRANSFORM_X_INVERT)>, <&zip_scroll_scaler 1 20>;
+            input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT | INPUT_TRANSFORM_X_INVERT)>, <&zip_scroll_scaler 1 22>;
         };
 
         // Fast movement mode (warp)
