@@ -24,13 +24,23 @@ This script builds firmware for both keyboard halves (left and right) and output
 ```bash
 ./build_debug.sh
 ```
-Enhanced build script with additional checks, verbose output, and debug features including USB logging.
+Enhanced build script with additional checks, verbose output, prerequisite validation, and debug features including USB logging. The debug build includes:
+- Automatic installation of missing dependencies (ARM toolchain, cmake, ninja, dtc)
+- System information logging
+- USB logging enabled for right half (`-S zmk-usb-logging -S cdc-acm-console`)
+- File size verification
 
 ### Layout Generation
 ```bash
 ./generate_layout.sh
 ```
-Generates visual keyboard layout images using zmk-viewer.
+Generates visual keyboard layout images using zmk-viewer. Output files are created in `./layouts/` directory.
+
+### Python Dependencies
+Both build scripts automatically set up a Python virtual environment (`./env/`) and install:
+- `west` - Zephyr's meta-tool
+- `pyelftools` - For ELF file handling
+- `protobuf` and `grpcio-tools` - For protocol buffer support
 
 ### Build System Details
 - Uses West build system (Zephyr's meta-tool)
@@ -48,6 +58,7 @@ Generates visual keyboard layout images using zmk-viewer.
 - `config/kyria_rev3_left.conf` - Left half configuration (display, RGB, trackpad)
 - `config/kyria_rev3_right.conf` - Right half configuration (RGB, trackpad)
 - `config/west.yml` - West manifest defining ZMK and module dependencies
+- `config/mouse_behaviors.dtsi` - Mouse behavior definitions
 
 ### Key Features
 - **Homerow Mods**: Balanced hold-tap behaviors with 300ms timing
@@ -60,6 +71,7 @@ Generates visual keyboard layout images using zmk-viewer.
   - Layer 5: Warp (fast mouse movement)
 - **Trackpad Integration**: Cirque Pinnacle with layer-dependent behavior modes
 - **Custom Behaviors**: Shift hold-tap, encoder mousewheel, custom macros
+- **Display**: Custom status screen on left half via dongle_display shield
 
 ### Module Dependencies
 - `zmk` - Main ZMK firmware (zmkfirmware/zmk)
@@ -72,6 +84,7 @@ Generates visual keyboard layout images using zmk-viewer.
 - Uses GNU ARM Embedded toolchain via Homebrew
 - West build system for Zephyr
 - CMake and Ninja for build process
+- Device Tree Compiler (dtc) for device tree files
 
 ## Key Code Patterns
 
@@ -110,11 +123,14 @@ GNUARMEMB_TOOLCHAIN_PATH=/opt/homebrew
 - UF2 files are generated in `output/` directory
 - File sizes should be reasonable (typically 200-400KB)
 - Both left and right builds must succeed
+- Use `./build_debug.sh` for verbose output and troubleshooting
 
 ### Common Issues
 - Missing ARM toolchain: Install with `brew install armmbed/formulae/arm-none-eabi-gcc`
 - West initialization: Run `west init -l ./config` if `.west` directory missing
 - Module updates: Run `west update` to sync dependencies
+- Python environment: Script automatically creates virtual environment in `./env/`
+- Build failures: Check that all tools are in PATH and environment variables are set
 
 ### Layout Testing
 Use `generate_layout.sh` to create visual representations of keymap layers for validation.
@@ -124,13 +140,15 @@ Use `generate_layout.sh` to create visual representations of keymap layers for v
 ### Config Files
 - `config/` - All keyboard configuration
 - `output/` - Generated UF2 firmware files
-- `build_left/`, `build_right/` - Build artifacts
+- `build_left/`, `build_right/` - Build artifacts (cleaned on each build)
 - `layouts/` - Generated layout images
+- `env/` - Python virtual environment (auto-created)
 
 ### Module Structure
 - `zmk/` - Main ZMK firmware
 - `zmk-helpers/` - Community helper utilities
 - `cirque-input-module/` - Trackpad driver
 - `zmk-dongle-display/` - Display functionality
+- `modules/` - Additional Zephyr modules (auto-managed by west)
 
 The codebase follows ZMK conventions with device tree configuration and Zephyr RTOS patterns.
