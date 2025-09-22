@@ -12,3 +12,6 @@ cirque-input-module
 zmk-dongle-display
 
 .DS_Store
+modules/hal/stm32/
+modules/lib/open-amp/
+modules/lib/picolibc/
