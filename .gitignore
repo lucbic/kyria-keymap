@@ -10,3 +10,5 @@ zmk
 zmk-oled-adapter
 cirque-input-module
 zmk-dongle-display
+
+.DS_Store
