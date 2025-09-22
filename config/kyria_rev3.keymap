@@ -158,6 +158,48 @@
             key-positions = <33 46>;
             layers = <2>;
         };
+
+        MaximizeWindow {
+            bindings = <&kp LA(LG(UP_ARROW))>;
+            key-positions = <4 3 2>;
+            layers = <3>;
+        };
+
+        RestoreWindow {
+            bindings = <&kp LA(LG(DOWN))>;
+            key-positions = <5 6 7>;
+            layers = <3>;
+        };
+
+        MinimizeWindow {
+            bindings = <&kp LG(M)>;
+            key-positions = <26 27 28>;
+            layers = <3>;
+        };
+
+        AlignWindowLeft {
+            bindings = <&kp LA(LG(LEFT_ARROW))>;
+            key-positions = <26 27>;
+            layers = <3>;
+        };
+        
+        AlignWindowRight {
+            bindings = <&kp LA(LG(RIGHT_ARROW))>;
+            key-positions = <27 28>;
+            layers = <3>;
+        };
+
+        WindowToNextDisplay {
+            bindings = <&kp LG(ENTER)>;
+            key-positions = <3 4>;
+            layers = <3>;
+        };
+
+        WindowToPreviousDisplay {
+            bindings = <&kp LG(ENTER)>;
+            key-positions = <2 3>;
+            layers = <3>;
+        };
     };
 
     keymap {
