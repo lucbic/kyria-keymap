@@ -54,6 +54,12 @@
             tap-ms = <20>; // Tap duration for scrolling
         };
 
+        sensor_noop: behavior_sensor_rotate_noop {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&none>, <&none>;
+        };
+
         hm_l: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -243,7 +249,7 @@
             >;
 
             sensor-bindings =
-                <&none>,
+                <&sensor_noop>,
                 <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 
             label = "Symbols";
@@ -258,7 +264,7 @@
             >;
 
             sensor-bindings =
-                <&none>,
+                <&sensor_noop>,
                 <&inc_dec_kp C_BRI_INC C_BRI_DEC>;
             label = "Numbers";
         };
