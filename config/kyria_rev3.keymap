@@ -20,7 +20,7 @@
 };
 
 // Set the knob scroll amount
-
+#undef ZMK_POINTING_DEFAULT_SCRL_VAL
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
 
 / {
@@ -192,13 +192,13 @@
         };
 
         WindowToNextDisplay {
-            bindings = <&kp LG(LA(LC(RIGHT_ARROW))>;
+            bindings = <&kp LG(LA(LC(RIGHT_ARROW)))>;
             key-positions = <3 4>;
             layers = <3>;
         };
 
         WindowToPreviousDisplay {
-            bindings = <&kp LG(LA(LC(LEFT_ARROW))>;
+            bindings = <&kp LG(LA(LC(LEFT_ARROW)))>;
             key-positions = <2 3>;
             layers = <3>;
         };
