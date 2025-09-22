@@ -15,3 +15,5 @@ zmk-dongle-display
 modules/hal/stm32/
 modules/lib/open-amp/
 modules/lib/picolibc/
+zmk-helpers/
+zmk-dongle-display/
