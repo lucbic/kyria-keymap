@@ -19,6 +19,9 @@
     chain-length = <31>;
 };
 
+// Set the knob scroll amount
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 100
+
 / {
     macros {
         lm: layer_mod {
@@ -42,20 +45,11 @@
     };
 
     behaviors {
-        sht: shift_hold_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            quick-tap-ms = <0>;
-            flavor = "hold-preferred";
-            bindings = <&lm>, <&sk>;
-        };
-
-        emw: encoder_mousewheel {
+        scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            tap-ms = <20>;
-            bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+            tap-ms = <20>; // Tap duration for scrolling
         };
 
         hm_l: homerow_mods_left {
@@ -174,7 +168,7 @@
 &kp ESC      &kp Q          &kp W             &kp E               &kp R                 &kp T                                                                                &kp Y    &kp U                  &kp I                &kp O              &kp P              &kp TILDE
 &caps_word   &hm_l LCTRL A  &hm_l LEFT_ALT S  &hm_l LEFT_SHIFT D  &hm_l LEFT_COMMAND F  &kp G                                                                                &kp H    &hm_r RIGHT_COMMAND J  &hm_r RIGHT_SHIFT K  &hm_r RIGHT_ALT L  &hm_r RCTRL CARET  &kp SQT
 &kp LA(TAB)  &kp Z          &kp X             &kp C               &kp V                 &kp B       &mkp LCLK        &mkp RCLK     &kp LC(BACKSLASH)  &kp LC(LS(BACKSLASH))  &kp N    &kp M                  &kp COMMA            &kp DOT            &kp SLASH          &kp GRAVE
-                                              &trans              &kp LC(LA(LEFT))      &sht 5 TAB  &lt 1 BACKSPACE  &lt 2 DELETE  &lt 4 ENTER        &lt 3 SPACE            &kp TAB  &kp LC(LA(RIGHT))      &trans
+                                              &trans              &kp LC(LA(LEFT))      &mkp MCLK  &lt 1 BACKSPACE  &lt 2 DELETE  &lt 4 ENTER        &lt 3 SPACE            &kp TAB  &kp LC(LA(RIGHT))      &trans
             >;
 
             sensor-bindings =
@@ -214,7 +208,7 @@
                                                             &none                          &kp LEFT_SHIFT                    &none  &kp LA(LEFT)      &kp LA(RIGHT)      &none  &none  &none        &none             &none
             >;
 
-            sensor-bindings = <&inc_dec_kp LC(LEFT) LC(RIGHT)>;
+            sensor-bindings = <&scroll_up_down>;
             label = "Navigation";
         };
 
@@ -225,19 +219,8 @@
 &kp LG(LS(NUMBER_4))  &kp F9  &kp F10  &kp F11  &kp F12  &none      &kp LG(Z)  &kp LG(LS(Z))  &none  &none  &none          &none              &none             &none            &rgb_ug RGB_SAD  &rgb_ug RGB_SAI
                                        &none    &none    &kp LG(X)  &kp LG(C)  &kp LG(V)      &none  &none  &none          &none              &none
             >;
-        };
 
-        // Add a warp layer for fast mouse movement
-
-        warp_layer {
-            bindings = <
-&kp ESC  &kp LS(Q)          &kp LS(W)             &kp LS(E)               &kp LS(R)                 &kp LS(T)                                                                                       &kp LS(Y)  &kp LS(U)                  &kp LS(I)                &kp LS(O)              &kp LS(P)              &kp TILDE
-&none    &hm_l LCTRL LS(A)  &hm_l LEFT_ALT LS(S)  &hm_l LEFT_SHIFT LS(D)  &hm_l LEFT_COMMAND LS(F)  &kp LS(G)                                                                                       &kp LS(H)  &hm_r RIGHT_COMMAND LS(J)  &hm_r RIGHT_SHIFT LS(K)  &hm_r RIGHT_ALT LS(L)  &hm_r RCTRL LS(CARET)  &hm_r RIGHT_SHIFT LS(SQT)
-&none    &kp LS(Z)          &kp LS(X)             &kp LS(C)               &kp LS(V)                 &kp LS(B)          &mkp LCLK        &mkp RCLK     &kp LC(LS(BACKSLASH))  &kp LC(LS(BACKSLASH))  &kp LS(N)  &kp LS(M)                  &kp LS(COMMA)            &kp LS(DOT)            &kp LS(SLASH)          &kp LS(GRAVE)
-                                                  &trans                  &kp LC(LA(LEFT))          &sht 5 LEFT_SHIFT  &lt 1 BACKSPACE  &lt 2 DELETE  &lt 4 ENTER            &lt 3 SPACE            &kp TAB    &kp LC(LA(RIGHT))          &trans
-            >;
-
-            label = "Warp";
+            label = "Function";
         };
     };
 };
