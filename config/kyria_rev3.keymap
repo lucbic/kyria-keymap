@@ -169,7 +169,7 @@
 
         RestoreWindow {
             bindings = <&kp LA(LG(DOWN))>;
-            key-positions = <5 6 7>;
+            key-positions = <14 15 16>;
             layers = <3>;
         };
 
@@ -181,25 +181,37 @@
 
         AlignWindowLeft {
             bindings = <&kp LA(LG(LEFT_ARROW))>;
-            key-positions = <26 27>;
+            key-positions = <14 15>;
             layers = <3>;
         };
 
         AlignWindowRight {
             bindings = <&kp LA(LG(RIGHT_ARROW))>;
-            key-positions = <27 28>;
+            key-positions = <15 16>;
             layers = <3>;
         };
 
         WindowToNextDisplay {
-            bindings = <&kp LG(ENTER)>;
+            bindings = <&kp LG(LA(LC(RIGHT_ARROW))>;
             key-positions = <3 4>;
             layers = <3>;
         };
 
         WindowToPreviousDisplay {
-            bindings = <&kp LG(ENTER)>;
+            bindings = <&kp LG(LA(LC(LEFT_ARROW))>;
             key-positions = <2 3>;
+            layers = <3>;
+        };
+
+        SplitTabRight {
+            bindings = <&kp LG(LC(RIGHT_ARROW))>;
+            key-positions = <27 28>;
+            layers = <3>;
+        };
+
+        SplitTabLeft {
+            bindings = <&kp LG(LC(LEFT_ARROW))>;
+            key-positions = <26 27>;
             layers = <3>;
         };
     };
@@ -216,8 +228,8 @@
             >;
 
             sensor-bindings =
-                <&inc_dec_kp C_BRI_INC C_BRI_DEC>,
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+                <&scroll_up_down>,
+                <&inc_dec_kp LC(LA(RIGHT)) LC(LA(LEFT))>;
 
             label = "Base";
         };
@@ -230,6 +242,10 @@
                                                         &none                  &none                      &none  &none  &none  &kp UNDERSCORE   &kp MINUS     &none      &none                        &none
             >;
 
+            sensor-bindings =
+                <&none>,
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+
             label = "Symbols";
         };
 
@@ -241,6 +257,9 @@
                                                    &none                    &none                                 &none  &none  &none  &kp MINUS  &kp PLUS  &none  &kp N0                        &none
             >;
 
+            sensor-bindings =
+                <&none>,
+                <&inc_dec_kp C_BRI_INC C_BRI_DEC>;
             label = "Numbers";
         };
 
@@ -252,7 +271,7 @@
                                 &none           &none             &none  &kp LA(LEFT)      &kp LA(RIGHT)      &none  &none  &none        &none             &none
             >;
 
-            sensor-bindings = <&scroll_up_down>;
+            sensor-bindings = <&inc_dec_kp LA(LEFT) LA(RIGHT)>;
             label = "Navigation";
         };
 
@@ -264,6 +283,7 @@
                                        &none    &none    &kp LG(X)  &kp LG(C)  &kp LG(V)      &none  &none  &none          &none              &none
             >;
 
+            sensor-bindings = <&inc_dec_kp LA(PAGE_DOWN) LA(PAGE_UP)>;
             label = "Function";
         };
     };
