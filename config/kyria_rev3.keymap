@@ -20,7 +20,9 @@
 };
 
 // Set the knob scroll amount
+
 #undef ZMK_POINTING_DEFAULT_SCRL_VAL
+
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 200
 
 / {
@@ -194,9 +196,7 @@
                                                         &none                  &none                      &none  &none  &none  &kp UNDERSCORE   &kp MINUS     &none      &none                        &none
             >;
 
-            sensor-bindings =
-                <&sensor_noop>,
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&sensor_noop>, <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 
             label = "Symbols";
         };
@@ -209,18 +209,17 @@
                                                    &none                    &none                                 &none  &none  &none  &kp MINUS  &kp PLUS  &none  &kp N0                        &none
             >;
 
-            sensor-bindings =
-                <&sensor_noop>,
-                <&inc_dec_kp C_BRI_INC C_BRI_DEC>;
+            sensor-bindings = <&sensor_noop>, <&inc_dec_kp C_BRI_INC C_BRI_DEC>;
+
             label = "Numbers";
         };
 
         nav_layer {
             bindings = <
-&none  &none             &kp LA(LC(LG(LEFT)))               &kp LA(LG(UP_ARROW))           &kp LA(LC(LG(RIGHT)))             &none                                                     &kp PG_UP    &kp HOME          &kp UP            &kp END           &kp K_SCROLL_UP    &none
-&none  &kp LCTRL         &hm_l LEFT_ALT LA(LG(LEFT_ARROW))  &hm_l LEFT_SHIFT LA(LG(DOWN))  &hm_l LEFT_COMMAND LA(LG(RIGHT))  &none                                                     &kp PG_DN    &kp LEFT          &kp DOWN          &kp RIGHT         &kp K_SCROLL_DOWN  &none
-&none  &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))                  &kp LC(LEFT)                   &kp LC(RIGHT)                     &none  &kp LA(LS(LEFT))  &kp LA(LS(RIGHT))  &none  &none  &kp LG(TAB)  &kp LC(NUMBER_1)  &kp LC(NUMBER_2)  &kp LC(NUMBER_3)  &kp LC(NUMBER_4)   &none
-                                                            &none                          &kp LEFT_SHIFT                    &none  &kp LA(LEFT)      &kp LA(RIGHT)      &none  &none  &none        &none             &none
+&none  &none      &kp LA(LC(LG(LEFT)))               &kp LA(LG(UP_ARROW))           &kp LA(LC(LG(RIGHT)))             &none                                                     &kp PG_UP    &kp HOME          &kp UP            &kp END           &kp K_SCROLL_UP    &none
+&none  &kp LCTRL  &hm_l LEFT_ALT LA(LG(LEFT_ARROW))  &hm_l LEFT_SHIFT LA(LG(DOWN))  &hm_l LEFT_COMMAND LA(LG(RIGHT))  &none                                                     &kp PG_DN    &kp LEFT          &kp DOWN          &kp RIGHT         &kp K_SCROLL_DOWN  &none
+&none  &none      &kp LC(LG(LEFT_ARROW))             &none                          &kp LC(LG(RIGHT))                 &none  &kp LA(LS(LEFT))  &kp LA(LS(RIGHT))  &none  &none  &kp LG(TAB)  &kp LC(NUMBER_1)  &kp LC(NUMBER_2)  &kp LC(NUMBER_3)  &kp LC(NUMBER_4)   &none
+                                                     &none                          &kp LEFT_SHIFT                    &none  &kp LA(LEFT)      &kp LA(RIGHT)      &none  &none  &none        &none             &none
             >;
 
             sensor-bindings = <&inc_dec_kp LA(LEFT) LA(RIGHT)>;
