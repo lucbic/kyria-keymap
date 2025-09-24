@@ -21,7 +21,7 @@
 
 // Set the knob scroll amount
 #undef ZMK_POINTING_DEFAULT_SCRL_VAL
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 100
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 200
 
 / {
     macros {
@@ -166,60 +166,6 @@
             key-positions = <33 46>;
             layers = <2>;
         };
-
-        MaximizeWindow {
-            bindings = <&kp LA(LG(UP_ARROW))>;
-            key-positions = <4 3 2>;
-            layers = <3>;
-        };
-
-        RestoreWindow {
-            bindings = <&kp LA(LG(DOWN))>;
-            key-positions = <14 15 16>;
-            layers = <3>;
-        };
-
-        MinimizeWindow {
-            bindings = <&kp LG(M)>;
-            key-positions = <26 27 28>;
-            layers = <3>;
-        };
-
-        AlignWindowLeft {
-            bindings = <&kp LA(LG(LEFT_ARROW))>;
-            key-positions = <14 15>;
-            layers = <3>;
-        };
-
-        AlignWindowRight {
-            bindings = <&kp LA(LG(RIGHT_ARROW))>;
-            key-positions = <15 16>;
-            layers = <3>;
-        };
-
-        WindowToNextDisplay {
-            bindings = <&kp LG(LA(LC(RIGHT_ARROW)))>;
-            key-positions = <3 4>;
-            layers = <3>;
-        };
-
-        WindowToPreviousDisplay {
-            bindings = <&kp LG(LA(LC(LEFT_ARROW)))>;
-            key-positions = <2 3>;
-            layers = <3>;
-        };
-
-        SplitTabRight {
-            bindings = <&kp LG(LC(RIGHT_ARROW))>;
-            key-positions = <27 28>;
-            layers = <3>;
-        };
-
-        SplitTabLeft {
-            bindings = <&kp LG(LC(LEFT_ARROW))>;
-            key-positions = <26 27>;
-            layers = <3>;
-        };
     };
 
     keymap {
@@ -271,10 +217,10 @@
 
         nav_layer {
             bindings = <
-&none  &none      &none         &none           &none             &none                                                     &kp PG_UP    &kp HOME          &kp UP            &kp END           &kp K_SCROLL_UP    &none
-&none  &kp LCTRL  &kp LEFT_ALT  &kp LEFT_SHIFT  &kp LEFT_COMMAND  &none                                                     &kp PG_DN    &kp LEFT          &kp DOWN          &kp RIGHT         &kp K_SCROLL_DOWN  &none
-&none  &none      &none         &none           &none             &none  &kp LA(LS(LEFT))  &kp LA(LS(RIGHT))  &none  &none  &kp LG(TAB)  &kp LC(NUMBER_1)  &kp LC(NUMBER_2)  &kp LC(NUMBER_3)  &kp LC(NUMBER_4)   &none
-                                &none           &none             &none  &kp LA(LEFT)      &kp LA(RIGHT)      &none  &none  &none        &none             &none
+&none  &none             &kp LA(LC(LG(LEFT)))               &kp LA(LG(UP_ARROW))           &kp LA(LC(LG(RIGHT)))             &none                                                     &kp PG_UP    &kp HOME          &kp UP            &kp END           &kp K_SCROLL_UP    &none
+&none  &kp LCTRL         &hm_l LEFT_ALT LA(LG(LEFT_ARROW))  &hm_l LEFT_SHIFT LA(LG(DOWN))  &hm_l LEFT_COMMAND LA(LG(RIGHT))  &none                                                     &kp PG_DN    &kp LEFT          &kp DOWN          &kp RIGHT         &kp K_SCROLL_DOWN  &none
+&none  &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))                  &kp LC(LEFT)                   &kp LC(RIGHT)                     &none  &kp LA(LS(LEFT))  &kp LA(LS(RIGHT))  &none  &none  &kp LG(TAB)  &kp LC(NUMBER_1)  &kp LC(NUMBER_2)  &kp LC(NUMBER_3)  &kp LC(NUMBER_4)   &none
+                                                            &none                          &kp LEFT_SHIFT                    &none  &kp LA(LEFT)      &kp LA(RIGHT)      &none  &none  &none        &none             &none
             >;
 
             sensor-bindings = <&inc_dec_kp LA(LEFT) LA(RIGHT)>;
