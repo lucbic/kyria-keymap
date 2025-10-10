@@ -175,6 +175,12 @@
 
         CommentSelectedLines {
             bindings = <&kp LG(SLASH)>;
+            key-positions = <32 45>;
+            layers = <2>;
+        };
+
+        EqualSign {
+            bindings = <&kp EQUAL>;
             key-positions = <33 46>;
             layers = <2>;
         };
