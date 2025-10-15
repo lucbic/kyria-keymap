@@ -21,21 +21,24 @@
 // Mouse behavior customization
 
 &mmv {
-    acceleration-exponent = <1>;      // Default: 1
-    time-to-max-speed-ms = <500>;     // Slower ramp-up for more control (default: 300)
-    delay-ms = <0>;                   // Default: 0
+    acceleration-exponent = <1>;
+    time-to-max-speed-ms = <500>;
+    delay-ms = <0>;
 };
 
 // Mouse scroll behavior customization
 &msc {
-    time-to-max-speed-ms = <60>;
-    acceleration-exponent = <1>;
+    time-to-max-speed-ms = <0>;
+    acceleration-exponent = <0>;
 };
 
 // Set the knob scroll amount
 
 #undef ZMK_POINTING_DEFAULT_SCRL_VAL
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 60
+
+#undef ZMK_POINTING_DEFAULT_MOVE_VAL
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1000
 
 / {
     macros {
@@ -275,10 +278,10 @@
 
         mouse_layer {
             bindings = <
-&trans  &trans  &trans             &mmv MOVE_Y(300)   &trans            &trans                                  &trans  &trans          &mmv MOVE_UP    &trans           &trans  &trans
-&trans  &trans  &mmv MOVE_X(-300)  &mmv MOVE_Y(-300)  &mmv MOVE_X(300)  &trans                                  &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans
-&trans  &trans  &trans             &trans             &trans            &trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans          &trans           &trans  &trans
-                                   &trans             &trans            &trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans
+&tog 5  &tog 5  &tog 5         &mmv MOVE_UP    &tog 5           &tog 5                                  &tog 5  &tog 5          &mmv MOVE_UP    &tog 5           &tog 5  &tog 5
+&tog 5  &tog 5  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &tog 5                                  &tog 5  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &tog 5  &tog 5
+&tog 5  &tog 5  &tog 5             &tog 5         &tog 5            &tog 5  &trans  &trans  &trans  &trans  &tog 5  &tog 5          &tog 5          &tog 5           &tog 5  &tog 5
+                                   &none          &trans            &tog 5  &tog 5  &tog 5  &tog 5  &tog 5  &tog 5  &tog 5          &none
             >;
 
             sensor-bindings = <&scroll_up_down>, <&scroll_left_right>;
