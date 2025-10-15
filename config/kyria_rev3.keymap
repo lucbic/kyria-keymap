@@ -27,7 +27,6 @@
 };
 
 // Mouse scroll behavior customization
-
 &msc {
     time-to-max-speed-ms = <60>;
     acceleration-exponent = <1>;
@@ -36,7 +35,6 @@
 // Set the knob scroll amount
 
 #undef ZMK_POINTING_DEFAULT_SCRL_VAL
-
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 60
 
 / {
@@ -66,6 +64,14 @@
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+
+            tap-ms = <60>; // Tap duration for scrolling
+        };
+
+        scroll_left_right: behavior_sensor_rotate_mouse_wheel_left_right {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
 
             tap-ms = <60>; // Tap duration for scrolling
         };
@@ -268,7 +274,7 @@
                                    &trans             &trans            &trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans
             >;
 
-            sensor-bindings = <&scroll_up_down>;
+            sensor-bindings = <&scroll_up_down>, <&scroll_left_right>;
         };
     };
 };
