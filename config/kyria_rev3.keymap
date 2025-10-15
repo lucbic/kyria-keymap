@@ -107,6 +107,13 @@
             hold-trigger-key-positions = <KEYS_L KEYS_LT>;
             hold-trigger-on-release;
         };
+
+        td_mc_toggle_mouse: tap_dance_mc_toggle_mouse {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mkp MCLK>, <&tog 5>;
+        };
     };
 
     combos {
@@ -204,7 +211,7 @@
 &kp ESC      &kp Q          &kp W             &kp E               &kp R                 &kp T                                                                               &kp Y    &kp U                  &kp I                &kp O              &kp P              &kp TILDE
 &caps_word   &hm_l LCTRL A  &hm_l LEFT_ALT S  &hm_l LEFT_SHIFT D  &hm_l LEFT_COMMAND F  &kp G                                                                               &kp H    &hm_r RIGHT_COMMAND J  &hm_r RIGHT_SHIFT K  &hm_r RIGHT_ALT L  &hm_r RCTRL CARET  &kp SQT
 &kp LA(TAB)  &kp Z          &kp X             &kp C               &kp V                 &kp B      &mkp LCLK        &mkp RCLK     &kp LC(BACKSLASH)  &kp LC(LS(BACKSLASH))  &kp N    &kp M                  &kp COMMA            &kp DOT            &kp SLASH          &kp GRAVE
-                                              &trans              &kp LC(LA(LEFT))      &mkp MCLK  &lt 1 BACKSPACE  &lt 2 DELETE  &lt 4 ENTER        &lt 3 SPACE            &kp TAB  &kp LC(LA(RIGHT))      &trans
+                                              &trans              &kp LC(LA(LEFT))      &td_mc_toggle_mouse  &lt 1 BACKSPACE  &lt 2 DELETE  &lt 4 ENTER        &lt 3 SPACE            &kp TAB  &kp LC(LA(RIGHT))      &trans
             >;
 
             sensor-bindings =
@@ -275,6 +282,7 @@
             >;
 
             sensor-bindings = <&scroll_up_down>, <&scroll_left_right>;
+            label = "Mouse";
         };
     };
 };
