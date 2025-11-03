@@ -218,8 +218,8 @@
             >;
 
             sensor-bindings =
-                <&scroll_up_down>,
-                <&inc_dec_kp LC(LA(RIGHT)) LC(LA(LEFT))>;
+                <&inc_dec_kp LC(LA(RIGHT)) LC(LA(LEFT))>,
+                <&scroll_up_down>;
 
             label = "Base";
         };
