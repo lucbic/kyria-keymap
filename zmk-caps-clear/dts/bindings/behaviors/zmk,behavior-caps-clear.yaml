@@ -1,0 +1,24 @@
+# Copyright (c) 2026 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+description: |
+  Caps lock clear behavior.
+
+  Reads the host caps lock LED indicator. If caps lock is on, sends one tap of
+  CAPS to turn it off. If caps lock is off, sends two taps, leaving the lock
+  state unchanged. Either way a CAPS keycode is emitted, and since CAPS is not
+  in caps-word's default continue-list, caps-word is deactivated too.
+
+compatible: "zmk,behavior-caps-clear"
+
+include: zero_param.yaml
+
+properties:
+  tap-ms:
+    type: int
+    default: 100
+    description: Milliseconds each synthesized CAPS tap is held.
+  wait-ms:
+    type: int
+    default: 30
+    description: Milliseconds between the release of one CAPS tap and the next press.

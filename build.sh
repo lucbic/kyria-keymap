@@ -47,14 +47,14 @@ echo "Building..."
 west build -b "nice_nano/nrf52840/zmk" -d build_right/ -s zmk/app -- \
   -DZMK_CONFIG="$PWD/config" \
   -DSHIELD="kyria_rev3_right" \
-  -DZMK_EXTRA_MODULES="$PWD/cirque-input-module"
+  -DZMK_EXTRA_MODULES="$PWD/cirque-input-module;$PWD/zmk-caps-clear"
 
 rm -rf build_left/
 echo "Building..."
 west build -b "nice_nano/nrf52840/zmk" -d build_left/ -s zmk/app -- \
   -DZMK_CONFIG="$PWD/config" \
   -DSHIELD="kyria_rev3_left dongle_display" \
-  
+  -DZMK_EXTRA_MODULES="$PWD/zmk-caps-clear"
 
 # --- Copy output UF2 files ---
 echo "Creating output directory..."

@@ -101,7 +101,7 @@ echo "Building right half..."
 west build -b "nice_nano_v2" -d build_right/ -s zmk/app -S zmk-usb-logging -S cdc-acm-console -- \
   -DZMK_CONFIG="$PWD/config" \
   -DSHIELD="kyria_rev3_right" \
-  -DZMK_EXTRA_MODULES="$PWD/cirque-input-module"
+  -DZMK_EXTRA_MODULES="$PWD/cirque-input-module;$PWD/zmk-caps-clear"
 
 echo "Right half build complete."
 
@@ -109,7 +109,8 @@ rm -rf build_left/
 echo "Building left half..."
 west build -b "nice_nano_v2" -d build_left/ -s zmk/app -- \
   -DZMK_CONFIG="$PWD/config" \
-  -DSHIELD="kyria_rev3_left dongle_display"
+  -DSHIELD="kyria_rev3_left dongle_display" \
+  -DZMK_EXTRA_MODULES="$PWD/zmk-caps-clear"
 
 echo "Left half build complete."
 
