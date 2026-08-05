@@ -1,7 +1,7 @@
 .venv
 env
 .west
-zephyr
+/zephyr/
 modules
 build
 build_left
