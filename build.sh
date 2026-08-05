@@ -44,14 +44,14 @@ west zephyr-export
 echo "Cleaning build directory..."
 rm -rf build_right/
 echo "Building..."
-west build -b "nice_nano_v2" -d build_right/ -s zmk/app -- \
+west build -b "nice_nano/nrf52840/zmk" -d build_right/ -s zmk/app -- \
   -DZMK_CONFIG="$PWD/config" \
   -DSHIELD="kyria_rev3_right" \
   -DZMK_EXTRA_MODULES="$PWD/cirque-input-module"
 
 rm -rf build_left/
 echo "Building..."
-west build -b "nice_nano_v2" -d build_left/ -s zmk/app -- \
+west build -b "nice_nano/nrf52840/zmk" -d build_left/ -s zmk/app -- \
   -DZMK_CONFIG="$PWD/config" \
   -DSHIELD="kyria_rev3_left dongle_display" \
   

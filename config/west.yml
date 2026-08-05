@@ -11,7 +11,7 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      revision: ead91ca094c6cd778574f73b9ae011ddab611c66
       import: app/west.yml
     - name: zmk-dongle-display
       remote: englmaxi
