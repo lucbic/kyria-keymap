@@ -2,23 +2,36 @@
 # SPDX-License-Identifier: MIT
 
 description: |
-  Caps lock clear behavior.
+  Caps state behavior, invoked with one parameter.
 
-  Reads the host caps lock LED indicator. If caps lock is on, sends one tap of
-  CAPS to turn it off. If caps lock is off, sends two taps, leaving the lock
-  state unchanged. Either way a CAPS keycode is emitted, and since CAPS is not
-  in caps-word's default continue-list, caps-word is deactivated too.
+  Parameter 0 — clear whichever caps state is active:
+    caps lock on  -> tap the caps binding to turn it off
+    caps word on  -> tap the caps word binding to turn it off
+    nothing on    -> tap the sticky shift binding
+
+  Parameter 1 — toggle caps word, tracking the state so parameter 0 can see it.
+
+  Caps lock state is read from the host LED indicator. Caps word state is not
+  exported by ZMK, so it is shadowed here and cancelled by the same rule
+  behavior_caps_word.c applies.
 
 compatible: "zmk,behavior-caps-clear"
 
-include: zero_param.yaml
+include: one_param.yaml
 
 properties:
+  bindings:
+    type: phandle-array
+    required: true
+    description: |
+      Exactly three, in order: the caps lock key press, the sticky shift, and
+      caps word. Passed as phandles so the referenced behaviors are guaranteed
+      to exist rather than being looked up by name.
   tap-ms:
     type: int
     default: 100
-    description: Milliseconds each synthesized CAPS tap is held.
+    description: Milliseconds each synthesized tap is held.
   wait-ms:
     type: int
     default: 30
-    description: Milliseconds between the release of one CAPS tap and the next press.
+    description: Milliseconds after each synthesized tap before the next.

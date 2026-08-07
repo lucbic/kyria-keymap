@@ -14,6 +14,15 @@
 #define HM_TAPPING_TERM_FAST 200
 #define HM_PRIOR_IDLE 100
 
+// caps_clear parameters
+#define CAPS_CLEAR_TAP 0   // clear whichever caps state is on, else sticky shift
+#define CAPS_CLEAR_WORD 1  // toggle caps word
+
+// Karabiner maps this to `clipsync push`, which sends the host's clipboard to
+// the other Mac. The keyboard cannot read a clipboard itself, so the host does
+// the work and this is only the trigger.
+#define CLIP_PUSH LC(LA(LG(V)))
+
 &led_strip {
     chain-length = <6>;
     chain-length = <31>;
@@ -63,6 +72,31 @@
                 <&kp MACRO_PLACEHOLDER &macro_param_1to1>,
                 <&macro_release>,
                 <&mo MACRO_PLACEHOLDER>;
+        };
+
+        // Wrapped so ht_bt_clr can hold it without spending its single
+        // forwardable parameter on the bt command.
+        bt_clr: bt_clr {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_CLR>;
+        };
+
+        // Send the clipboard to the other Mac, then follow it there. The pause
+        // only has to outlast delivery of the keystroke over BLE; the push runs
+        // on the host afterwards and is unaffected by the profile switch.
+        clip_to_0: clip_to_0 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <300>;
+            bindings = <&kp CLIP_PUSH>, <&bt BT_SEL 0>;
+        };
+
+        clip_to_1: clip_to_1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <300>;
+            bindings = <&kp CLIP_PUSH>, <&bt BT_SEL 1>;
         };
     };
 
@@ -124,24 +158,24 @@
 
         caps_clear: caps_clear {
             compatible = "zmk,behavior-caps-clear";
-            #binding-cells = <0>;
+            #binding-cells = <1>;
+            bindings = <&kp CAPS>, <&sk LSHFT>, <&caps_word>;
         };
 
         td_caps: tap_dance_caps {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
-            bindings = <&caps_clear>, <&caps_word>;
+            bindings = <&caps_clear CAPS_CLEAR_TAP>, <&caps_clear CAPS_CLEAR_WORD>;
         };
 
-        ht_caps: hold_tap_caps {
+        ht_bt_clr: hold_tap_bt_clr {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            bindings = <&kp>, <&td_caps>;
+            bindings = <&bt_clr>, <&none>;
 
             flavor = "tap-preferred";
-            tapping-term-ms = <250>;
-            quick-tap-ms = <250>;    // keeps the double-tap window aligned with td_caps
+            tapping-term-ms = <1000>;    // hold a full second to clear; a tap does nothing
         };
     };
 
@@ -238,7 +272,7 @@
         base_layer {
             bindings = <
 &kp ESC         &kp Q          &kp W             &kp E               &kp R                 &kp T                                                                                         &kp Y    &kp U                  &kp I                &kp O              &kp P              &kp TILDE
-&ht_caps CAPS 0 &hm_l LCTRL A  &hm_l LEFT_ALT S  &hm_l LEFT_SHIFT D  &hm_l LEFT_COMMAND F  &kp G                                                                                         &kp H    &hm_r RIGHT_COMMAND J  &hm_r RIGHT_SHIFT K  &hm_r RIGHT_ALT L  &hm_r RCTRL CARET  &kp SQT
+&td_caps        &hm_l LCTRL A  &hm_l LEFT_ALT S  &hm_l LEFT_SHIFT D  &hm_l LEFT_COMMAND F  &kp G                                                                                         &kp H    &hm_r RIGHT_COMMAND J  &hm_r RIGHT_SHIFT K  &hm_r RIGHT_ALT L  &hm_r RCTRL CARET  &kp SQT
 &kp GLOBE       &kp Z          &kp X             &kp C               &kp V                 &kp B                &mkp LCLK        &mkp RCLK     &kp LC(BACKSLASH)  &kp LC(LS(BACKSLASH))  &kp N    &kp M                  &kp COMMA            &kp DOT            &kp SLASH          &kp GRAVE
                                                  &trans              &kp LC(LA(LEFT))      &td_mc_toggle_mouse  &lt 1 BACKSPACE  &lt 2 DELETE  &lt 4 ENTER        &lt 3 SPACE            &kp TAB  &kp LC(LA(RIGHT))      &trans
             >;
@@ -291,8 +325,8 @@
         special_layer {
             bindings = <
 &kp F19               &kp F1  &kp F2   &kp F3   &kp F4   &none                                              &kp C_BRI_INC  &kp C_VOLUME_DOWN       &kp C_MUTE        &kp C_VOLUME_UP  &rgb_ug RGB_BRD  &rgb_ug RGB_BRI
-&kp LG(LS(NUMBER_3))  &kp F5  &kp F6   &kp F7   &kp F8   &none                                              &kp C_BRI_DEC  &hm_r GLOBE C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT       &rgb_ug RGB_HUD  &rgb_ug RGB_HUI
-&kp LG(LS(NUMBER_4))  &kp F9  &kp F10  &kp F11  &kp F12  &none      &kp LG(Z)  &kp LG(LS(Z))  &none  &none  &bt BT_CLR     &bt BT_SEL 0            &bt BT_SEL 1      &bt BT_SEL 2     &rgb_ug RGB_SAD  &rgb_ug RGB_SAI
+&kp CAPS              &kp F5  &kp F6   &kp F7   &kp F8   &kp LG(LS(NUMBER_3))                               &kp C_BRI_DEC  &hm_r GLOBE C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT       &rgb_ug RGB_HUD  &rgb_ug RGB_HUI
+&none                 &kp F9  &kp F10  &kp F11  &kp F12  &kp LG(LS(NUMBER_4))  &kp LG(Z)  &kp LG(LS(Z))  &clip_to_0  &clip_to_1  &ht_bt_clr 0 0 &bt BT_SEL 0            &bt BT_SEL 1      &bt BT_SEL 2     &rgb_ug RGB_SAD  &rgb_ug RGB_SAI
                                        &none    &none    &kp LG(X)  &kp LG(C)  &kp LG(V)      &none  &none  &none          &none                   &none
             >;
 
