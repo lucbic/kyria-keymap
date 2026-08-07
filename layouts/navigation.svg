@@ -125,7 +125,6 @@ path.combo {
 }
 /* End Tabler Icons Cleanup */
 
-@media (prefers-color-scheme: dark) {
 svg.keymap { fill: #d1d6db; }
 rect.key { fill: #3f4750; }
 rect.key, rect.combo { stroke: #60666c; }
@@ -135,102 +134,71 @@ text.label, text.footer { stroke: black; }
 text.trans { fill: #7e8184; }
 path.combo { stroke: #7f7f7f; }
 
-}
 svg.keymap {
   font-family: -apple-system, "SF Pro Text", "Segoe UI", Inter, Helvetica, Arial, sans-serif;
   font-size: 14px;
-  background-color: #ffffff;
-  fill: #1f2328;
-  color: #1f2328;  /* icon glyphs stroke with currentColor */
+  background-color: #0d1117;
+  fill: #e6edf3;
+  color: #e6edf3;  /* icon glyphs stroke with currentColor */
 }
-rect.key { fill: #f7f8fa; }
-rect.key, rect.combo { stroke: #d5d9df; stroke-width: 1.2; }
-rect.side { filter: brightness(96%); }
+rect.backdrop { fill: #0d1117; }
+rect.key { fill: #1a2029; }
+rect.key, rect.combo { stroke: #343b45; stroke-width: 1.2; }
+rect.side { filter: brightness(85%); }
 /* thumb/layer keys that activate the drawn layer */
-rect.held, rect.combo.held { fill: #e6dcff; stroke: #a78bfa; }
+rect.held, rect.combo.held { fill: #3b2f63; stroke: #8b5cf6; }
 /* combos: one outline around the whole group of keys that triggers them,
    and a legend saying what it does over the keystroke it sends */
-path.combo-outline { stroke: #d99a07; stroke-width: 1.4; fill: none; }
-rect.combo { fill: #fdf6e3; stroke: #d99a07; stroke-width: 1.4; }
+path.combo-outline { stroke: #e0a82e; stroke-width: 1.4; fill: none; }
+rect.combo { fill: #2a2312; stroke: #e0a82e; stroke-width: 1.4; }
 text.combo.tap { font-size: 12px; transform: translateY(-4px); }
-text.combo.hold { font-size: 11px; fill: #9a8347; transform: translateY(-5px); }
-path.combo-leader { stroke: #d99a07; stroke-width: 1.4; fill: none; }
+text.combo.hold { font-size: 11px; fill: #b8a468; transform: translateY(-5px); }
+path.combo-leader { stroke: #e0a82e; stroke-width: 1.4; fill: none; }
 /* knobs get the same treatment as combos, in green */
-.knob rect.combo { fill: #eefaf3; stroke: #2f9e63; }
-path.combo-leader.knob { stroke: #2f9e63; }
+.knob rect.combo { fill: #12251c; stroke: #46b37a; }
+path.combo-leader.knob { stroke: #46b37a; }
 /* the knob card is taller than combo_h, which is what positions these,
    so each line is pushed back out to its own edge */
-.knob text.combo.shifted { fill: #4c8168; font-size: 10px; transform: translateY(-5px); }
-.knob text.combo.hold { fill: #4c8168; font-size: 10px; font-weight: 400; transform: translateY(5px); }
+.knob text.combo.shifted { fill: #7fae95; font-size: 10px; transform: translateY(-5px); }
+.knob text.combo.hold { fill: #7fae95; font-size: 10px; font-weight: 400; transform: translateY(5px); }
 .knob text.combo.tap { transform: translateY(3px); }
 /* what a key does on hold, in the bottom-right corner ... */
-text.br { fill: #7c3aed; font-weight: 600; font-size: 12px; transform: translate(-3px, -3px); }
+text.br { fill: #a78bfa; font-weight: 600; font-size: 12px; transform: translate(-3px, -3px); }
 /* ... and what it is for, bottom-left */
-text.bl { fill: #939aa3; font-size: 10.5px; transform: translate(3px, -3px); }
+text.bl { fill: #7d848d; font-size: 10.5px; transform: translate(3px, -3px); }
 /* rotary encoders: round the keycap into a knob, and pull the clockwise /
    counter-clockwise legends off its edge */
-rect.encoder { rx: 50%; ry: 50%; fill: #e9f7f0; }
-rect.encoder.side { stroke: #2f9e63; stroke-width: 1.6; fill: #d9efe4; }
+rect.encoder { rx: 50%; ry: 50%; fill: #16281f; }
+rect.encoder.side { stroke: #46b37a; stroke-width: 1.6; fill: #101c15; }
 /* the Cirque trackpad: not a key, drawn as its own round pad */
 rect.trackpad { rx: 50%; ry: 50%; }
-rect.trackpad.side { stroke: #c2508a; stroke-width: 1.6; }
-.pad rect.combo { fill: #fdf0f6; stroke: #c2508a; }
-path.combo-leader.pad { stroke: #c2508a; }
-.pad text.combo.hold { fill: #a4677f; font-weight: 400; }
+rect.trackpad.side { stroke: #d9739f; stroke-width: 1.6; }
+.pad rect.combo { fill: #2b141f; stroke: #d9739f; }
+path.combo-leader.pad { stroke: #d9739f; }
+.pad text.combo.hold { fill: #c08fa2; font-weight: 400; }
 /* note cards: a scheme shared by a group of keys, stated once beside them */
-.note rect.combo { fill: #eef3fd; stroke: #3b6fd4; }
-path.combo-outline.note, path.combo-leader.note { stroke: #3b6fd4; }
+.note rect.combo { fill: #121d33; stroke: #5b8fe6; }
+path.combo-outline.note, path.combo-leader.note { stroke: #5b8fe6; }
 /* class rules, not text-anchor attributes: the sheet sets text-anchor on
    every `text` and a presentation attribute cannot outrank it */
 .note text.note-title { font-size: 12.5px; font-weight: 600; letter-spacing: 0.01em; }
-.note text.note-label { font-size: 11.5px; fill: #5a6373; text-anchor: start; }
-.note text.note-chord { font-size: 11.5px; fill: #3b6fd4; font-weight: 600; text-anchor: end; }
+.note text.note-label { font-size: 11.5px; fill: #98a2b3; text-anchor: start; }
+.note text.note-chord { font-size: 11.5px; fill: #7dabf0; font-weight: 600; text-anchor: end; }
 .note text.note-mark { font-size: 10px; text-anchor: middle; }
-.note text.note-mark.tap { fill: #3b6fd4; }
-.note text.note-mark.hold { fill: #7c3aed; }
-.note path.note-rule { stroke: #3b6fd4; stroke-width: 0.8; opacity: 0.35; }
-.note text.note-key { font-size: 10px; fill: #8a93a3; letter-spacing: 0.03em; }
+.note text.note-mark.tap { fill: #7dabf0; }
+.note text.note-mark.hold { fill: #a78bfa; }
+.note path.note-rule { stroke: #7dabf0; stroke-width: 0.8; opacity: 0.35; }
+.note text.note-key { font-size: 10px; fill: #6d7788; letter-spacing: 0.03em; }
 text.encoder.shifted { transform: translateY(4px); }
 text.encoder.hold { transform: translateY(-4px); }
-text.hold { fill: #7c3aed; font-weight: 600; }
-text.shifted { fill: #7c7f88; font-size: 10.5px; transform: translateY(3px); }
-text.trans { fill: #b9bec6; }
+text.hold { fill: #a78bfa; font-weight: 600; }
+text.shifted { fill: #8b929c; font-size: 10.5px; transform: translateY(3px); }
+text.trans { fill: #4d545e; }
 text.label { font-size: 19px; font-weight: 600; letter-spacing: 0.02em; }
-path.combo { stroke: #93c5fd; }
-@media (prefers-color-scheme: dark) {
-  svg.keymap { background-color: #0d1117; fill: #e6edf3; color: #e6edf3; }
-  rect.key { fill: #1a2029; }
-  rect.key, rect.combo { stroke: #343b45; }
-  rect.side { filter: brightness(85%); }
-  rect.held, rect.combo.held { fill: #3b2f63; stroke: #8b5cf6; }
-  path.combo-outline, path.combo-leader { stroke: #e0a82e; }
-  rect.combo { fill: #2a2312; stroke: #e0a82e; }
-  text.combo.hold { fill: #b8a468; }
-  .knob rect.combo { fill: #12251c; stroke: #46b37a; }
-  path.combo-leader.knob { stroke: #46b37a; }
-  rect.encoder { fill: #16281f; }
-  rect.encoder.side { stroke: #46b37a; fill: #101c15; }
-  rect.trackpad.side { stroke: #d9739f; }
-  .pad rect.combo { fill: #2b141f; stroke: #d9739f; }
-  path.combo-leader.pad { stroke: #d9739f; }
-  .pad text.combo.hold { fill: #c08fa2; }
-  .note rect.combo { fill: #121d33; stroke: #5b8fe6; }
-  path.combo-outline.note, path.combo-leader.note { stroke: #5b8fe6; }
-  .note text.note-label { fill: #98a2b3; }
-  .note text.note-chord, .note text.note-mark.tap { fill: #7dabf0; }
-  .note text.note-mark.hold { fill: #a78bfa; }
-  .note path.note-rule { stroke: #7dabf0; }
-  .note text.note-key { fill: #6d7788; }
-  .knob text.combo.shifted, .knob text.combo.hold { fill: #7fae95; }
-  text.br { fill: #a78bfa; }
-  text.bl { fill: #7d848d; }
-  text.hold { fill: #a78bfa; }
-  text.shifted { fill: #8b929c; }
-  text.trans { fill: #4d545e; }
-  text.label, text.footer { stroke: #0d1117; }
-  path.combo { stroke: #2f6fb0; }
-}
+text.label, text.footer { stroke: #0d1117; }
+path.combo { stroke: #2f6fb0; }
 </style>
+<rect class="backdrop" x="0" y="0" width="1052" height="613"/>
 <g transform="translate(20, 0)" class="layer-Navigation">
 <text x="0" y="16" class="label" id="Navigation">Navigation</text>
 <g transform="translate(-4.0, 60.6)">

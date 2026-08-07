@@ -455,9 +455,17 @@ def resize(svg, keys, boxes, hull_points):
     max_y = max([b.cy + b.h / 2 for b in all_boxes] + [p[1] for p in hull_points])
 
     pad_x, label_h, pad_y = 20, 44, 20
+    width, height = max_x - min_x + 2 * pad_x, max_y - min_y + label_h + pad_y
+
     inner = re.search(r'<g transform="translate\(0, [\d.]+\)">', svg)
     svg = svg[: inner.start()] + f'<g transform="translate({-min_x:.1f}, {label_h - min_y:.1f})">' + svg[inner.end():]
-    width, height = max_x - min_x + 2 * pad_x, max_y - min_y + label_h + pad_y
+
+    # a real rect, not the stylesheet's background-color: that property is the
+    # page's to paint, and a renderer showing the file on its own (rsvg, Quick
+    # Look) leaves it transparent, which puts light text on a white page. It
+    # goes in ahead of everything, the layer title included, so it paints under
+    svg = svg.replace("</style>", "</style>\n"
+                      f'<rect class="backdrop" x="0" y="0" width="{width:.0f}" height="{height:.0f}"/>', 1)
     return re.sub(r'^<svg width="[\d.]+" height="[\d.]+" viewBox="[^"]*"',
                   f'<svg width="{width:.0f}" height="{height:.0f}" viewBox="0 0 {width:.0f} {height:.0f}"',
                   svg, count=1)
