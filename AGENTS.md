@@ -10,7 +10,7 @@
 - `./build.sh` provisions the Python venv, updates west, and produces left/right UF2 firmware in `output/` for quick iteration.
 - `./build_debug.sh` adds prerequisite checks, USB logging snippets, and verbose diagnostics—use when investigating build or runtime issues.
 - `west update` (run inside the repo root) syncs the Zephyr and module revisions defined in `config/west.yml` after dependency changes.
-- `./generate_layout.sh` calls `zmk-viewer` to refresh the layer PNGs under `layouts/` after keymap edits.
+- `./generate_layout.sh` calls `keymap-drawer` to refresh the layer SVGs under `layouts/` after keymap edits.
 
 ## Coding Style & Naming Conventions
 - Follow ZMK device-tree conventions: 4-space indentation, lowercase node labels (`hm_l`), uppercase macros/constants (`HM_TAPPING_TERM`).

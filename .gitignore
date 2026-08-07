@@ -11,6 +11,9 @@ zmk-oled-adapter
 cirque-input-module
 zmk-dongle-display
 
+layouts/keymap.yaml
+keymap-drawer/__pycache__/
+
 .DS_Store
 modules/hal/stm32/
 modules/lib/open-amp/

@@ -34,7 +34,7 @@ Enhanced build script with additional checks, verbose output, prerequisite valid
 ```bash
 ./generate_layout.sh
 ```
-Generates visual keyboard layout images using zmk-viewer. Output files are created in `./layouts/` directory.
+Renders one SVG per layer (plus a combos diagram) into `./layouts/` using keymap-drawer (`pipx install keymap-drawer`). Legend and style customization lives in `keymap-drawer/config.yaml`; key positions in `keymap-drawer/kyria_rev3_layout.json`.
 
 ### Python Dependencies
 Both build scripts automatically set up a Python virtual environment (`./env/`) and install:

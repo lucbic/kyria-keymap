@@ -1,0 +1,301 @@
+# keymap-drawer configuration used by ./generate_layout.sh
+# Docs: https://github.com/caksoylar/keymap-drawer
+
+parse_config:
+  # Custom behaviors that would otherwise render as raw devicetree references.
+  # `bl` is what the key means, `br` is what holding it does -- see annotate.py.
+  raw_binding_map:
+    "&td_caps": { t: "⇧", s: "×2 word", bl: "×3 lock" }
+    "&ht_caps 0 0": { t: "⇧", s: "×2 word", br: "⇪" }
+    "&rgb_ug RGB_BRI": "led +"
+    "&rgb_ug RGB_BRD": "led −"
+    "&rgb_ug RGB_HUI": "hue +"
+    "&rgb_ug RGB_HUD": "hue −"
+    "&rgb_ug RGB_SAI": "sat +"
+    "&rgb_ug RGB_SAD": "sat −"
+    "&td_mc_toggle_mouse": { t: "$$tabler:mouse$$", bl: "×2 layer" }
+    "&mkp LCLK": { t: "$$tabler:mouse$$", bl: "L click" }
+    "&mkp RCLK": { t: "$$tabler:mouse$$", bl: "R click" }
+    "&ht_bt_clr 0 0": { t: "$$tabler:bluetooth-off$$", bl: "reset", br: "1s" }
+    "&bt BT_SEL 0": { t: "$$tabler:bluetooth$$", bl: "prof 1" }
+    "&bt BT_SEL 1": { t: "$$tabler:bluetooth$$", bl: "prof 2" }
+    "&bt BT_SEL 2": { t: "$$tabler:bluetooth$$", bl: "prof 3" }
+    "&mmv MOVE_UP": "↑"
+    "&mmv MOVE_DOWN": "↓"
+    "&mmv MOVE_LEFT": "←"
+    "&mmv MOVE_RIGHT": "→"
+    "&tog 5": { t: "✕", type: "ghost" }
+    # the fn/Globe key stays unlabelled by choice
+    "&kp GLOBE": { type: "ghost" }
+    # macros: push the clipboard over (⌃⌥⌘V), then follow it to that Mac's profile
+    "&clip_to_0": { t: "$$tabler:clipboard$$", bl: "→ Mac 1" }
+    "&clip_to_1": { t: "$$tabler:clipboard$$", bl: "→ Mac 2" }
+    # navigation-layer window management: the key says what it does and nothing
+    # else -- the chords are stated once, in the legend card annotate.py adds.
+    # arrows are joined to the word: keymap-drawer wraps on any whitespace
+    "&hm_l LA(LC(LG(LEFT))) LA(LG(LEFT))": { t: "Snap←" }
+    "&hm_l LA(LC(LG(RIGHT))) LA(LG(RIGHT))": { t: "Snap→" }
+    "&kp LA(LG(UP_ARROW))": { t: "Maximize" }
+    "&kp LC(LG(LEFT_ARROW))": { t: "Pane←" }
+    "&kp LC(LG(RIGHT))": { t: "Pane→" }
+
+  # macOS modifier glyphs, concatenated the way macOS writes shortcuts.
+  modifier_fn_map:
+    left_ctrl: "⌃"
+    right_ctrl: "⌃"
+    left_shift: "⇧"
+    right_shift: "⇧"
+    left_alt: "⌥"
+    right_alt: "⌥"
+    left_gui: "⌘"
+    right_gui: "⌘"
+    keycode_combiner: "{mods}{key}"
+    mod_combiner: "{mod_1}{mod_2}"
+    special_combinations:
+      left_ctrl+left_alt+left_gui+left_shift: "Hyper"
+      left_ctrl+left_alt+left_shift: "Meh"
+
+  # Replaces (not merges with) the built-in map, so the defaults are repeated here.
+  zmk_keycode_map:
+    # --- built-in defaults ---
+    EXCLAMATION: "!"
+    EXCL: "!"
+    AT_SIGN: "@"
+    AT: "@"
+    HASH: "#"
+    POUND: "#"
+    DOLLAR: $
+    DLLR: $
+    PERCENT: "%"
+    PRCNT: "%"
+    CARET: ^
+    AMPERSAND: "&"
+    AMPS: "&"
+    ASTERISK: "*"
+    ASTRK: "*"
+    STAR: "*"
+    LEFT_PARENTHESIS: (
+    LPAR: (
+    RIGHT_PARENTHESIS: )
+    RPAR: )
+    EQUAL: "="
+    PLUS: +
+    MINUS: "-"
+    UNDERSCORE: _
+    UNDER: _
+    SLASH: /
+    FSLH: /
+    QUESTION: "?"
+    QMARK: "?"
+    BACKSLASH: \
+    BSLH: \
+    PIPE: "|"
+    NON_US_BACKSLASH: \
+    PIPE2: "|"
+    NON_US_BSLH: "|"
+    SEMICOLON: ;
+    SEMI: ;
+    COLON: ":"
+    SINGLE_QUOTE: "'"
+    SQT: "'"
+    APOSTROPHE: "'"
+    APOS: "'"
+    DOUBLE_QUOTES: '"'
+    DQT: '"'
+    COMMA: ","
+    LESS_THAN: <
+    LT: <
+    PERIOD: .
+    DOT: .
+    GREATER_THAN: ">"
+    GT: ">"
+    LEFT_BRACKET: "["
+    LBKT: "["
+    LEFT_BRACE: "{"
+    LBRC: "{"
+    RIGHT_BRACKET: "]"
+    RBKT: "]"
+    RIGHT_BRACE: "}"
+    RBRC: "}"
+    GRAVE: "`"
+    TILDE: "~"
+    NON_US_HASH: "#"
+    NUHS: "#"
+    TILDE2: "~"
+    # --- modifiers as macOS glyphs ---
+    LCTRL: "⌃"
+    RCTRL: "⌃"
+    LEFT_CONTROL: "⌃"
+    RIGHT_CONTROL: "⌃"
+    LSHFT: "⇧"
+    RSHFT: "⇧"
+    LEFT_SHIFT: "⇧"
+    RIGHT_SHIFT: "⇧"
+    LALT: "⌥"
+    RALT: "⌥"
+    LEFT_ALT: "⌥"
+    RIGHT_ALT: "⌥"
+    LGUI: "⌘"
+    RGUI: "⌘"
+    LEFT_COMMAND: "⌘"
+    RIGHT_COMMAND: "⌘"
+    # --- editing / whitespace ---
+    ESC: "esc"
+    ESCAPE: "esc"
+    TAB: "⇥"
+    BACKSPACE: "⌫"
+    BSPC: "⌫"
+    DELETE: "⌦"
+    DEL: "⌦"
+    ENTER: "⏎"
+    RET: "⏎"
+    SPACE: "␣"
+    CAPS: "⇪"
+    CAPSLOCK: "⇪"
+    GLOBE: "fn"
+    # --- navigation ---
+    LEFT: "←"
+    RIGHT: "→"
+    UP: "↑"
+    DOWN: "↓"
+    LEFT_ARROW: "←"
+    RIGHT_ARROW: "→"
+    UP_ARROW: "↑"
+    DOWN_ARROW: "↓"
+    HOME: "home"
+    END: "end"
+    PG_UP: "page ↑"
+    PG_DN: "page ↓"
+    K_SCROLL_UP: "scroll ↑"
+    K_SCROLL_DOWN: "scroll ↓"
+    SCRL_UP: "↑"
+    SCRL_DOWN: "↓"
+    SCRL_LEFT: "←"
+    SCRL_RIGHT: "→"
+    # --- media / system ---
+    C_VOLUME_UP: "$$tabler:volume$$"
+    C_VOL_UP: "$$tabler:volume$$"
+    C_VOLUME_DOWN: "$$tabler:volume-2$$"
+    C_VOL_DN: "$$tabler:volume-2$$"
+    C_MUTE: "$$tabler:volume-off$$"
+    C_PLAY_PAUSE: "$$tabler:player-play$$"
+    C_NEXT: "$$tabler:player-track-next$$"
+    C_PREVIOUS: "$$tabler:player-track-prev$$"
+    C_BRI_INC: "$$tabler:sun-high$$"
+    C_BRI_DEC: "$$tabler:sun-low$$"
+
+draw_config:
+  dark_mode: auto
+  draw_key_sides: true
+  append_colon_to_layer_header: false
+  separate_combo_diagrams: false
+  combo_w: 132
+  combo_h: 58
+  # a wider gutter between keys, so a combo outline can pass between two
+  # rows without crossing the legends of either
+  inner_pad_w: 4
+  inner_pad_h: 4
+  # square keys: the thumb cluster is rotated, so anything but a 1:1 aspect
+  # ratio shears the fan and makes the keys overlap
+  key_w: 60
+  key_h: 60
+  outer_pad_w: 20
+  outer_pad_h: 32
+  glyph_tap_size: 17
+  glyph_hold_size: 13
+  glyph_shifted_size: 13
+  svg_extra_style: |
+    svg.keymap {
+      font-family: -apple-system, "SF Pro Text", "Segoe UI", Inter, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      background-color: #ffffff;
+      fill: #1f2328;
+      color: #1f2328;  /* icon glyphs stroke with currentColor */
+    }
+    rect.key { fill: #f7f8fa; }
+    rect.key, rect.combo { stroke: #d5d9df; stroke-width: 1.2; }
+    rect.side { filter: brightness(96%); }
+    /* thumb/layer keys that activate the drawn layer */
+    rect.held, rect.combo.held { fill: #e6dcff; stroke: #a78bfa; }
+    /* combos: one outline around the whole group of keys that triggers them,
+       and a legend saying what it does over the keystroke it sends */
+    path.combo-outline { stroke: #d99a07; stroke-width: 1.4; fill: none; }
+    rect.combo { fill: #fdf6e3; stroke: #d99a07; stroke-width: 1.4; }
+    text.combo.tap { font-size: 12px; transform: translateY(-4px); }
+    text.combo.hold { font-size: 11px; fill: #9a8347; transform: translateY(-5px); }
+    path.combo-leader { stroke: #d99a07; stroke-width: 1.4; fill: none; }
+    /* knobs get the same treatment as combos, in green */
+    .knob rect.combo { fill: #eefaf3; stroke: #2f9e63; }
+    path.combo-leader.knob { stroke: #2f9e63; }
+    /* the knob card is taller than combo_h, which is what positions these,
+       so each line is pushed back out to its own edge */
+    .knob text.combo.shifted { fill: #4c8168; font-size: 10px; transform: translateY(-5px); }
+    .knob text.combo.hold { fill: #4c8168; font-size: 10px; font-weight: 400; transform: translateY(5px); }
+    .knob text.combo.tap { transform: translateY(3px); }
+    /* what a key does on hold, in the bottom-right corner ... */
+    text.br { fill: #7c3aed; font-weight: 600; font-size: 12px; transform: translate(-3px, -3px); }
+    /* ... and what it is for, bottom-left */
+    text.bl { fill: #939aa3; font-size: 10.5px; transform: translate(3px, -3px); }
+    /* rotary encoders: round the keycap into a knob, and pull the clockwise /
+       counter-clockwise legends off its edge */
+    rect.encoder { rx: 50%; ry: 50%; fill: #e9f7f0; }
+    rect.encoder.side { stroke: #2f9e63; stroke-width: 1.6; fill: #d9efe4; }
+    /* the Cirque trackpad: not a key, drawn as its own round pad */
+    rect.trackpad { rx: 50%; ry: 50%; }
+    rect.trackpad.side { stroke: #c2508a; stroke-width: 1.6; }
+    .pad rect.combo { fill: #fdf0f6; stroke: #c2508a; }
+    path.combo-leader.pad { stroke: #c2508a; }
+    .pad text.combo.hold { fill: #a4677f; font-weight: 400; }
+    /* note cards: a scheme shared by a group of keys, stated once beside them */
+    .note rect.combo { fill: #eef3fd; stroke: #3b6fd4; }
+    path.combo-outline.note, path.combo-leader.note { stroke: #3b6fd4; }
+    /* class rules, not text-anchor attributes: the sheet sets text-anchor on
+       every `text` and a presentation attribute cannot outrank it */
+    .note text.note-title { font-size: 12.5px; font-weight: 600; letter-spacing: 0.01em; }
+    .note text.note-label { font-size: 11.5px; fill: #5a6373; text-anchor: start; }
+    .note text.note-chord { font-size: 11.5px; fill: #3b6fd4; font-weight: 600; text-anchor: end; }
+    .note text.note-mark { font-size: 10px; text-anchor: middle; }
+    .note text.note-mark.tap { fill: #3b6fd4; }
+    .note text.note-mark.hold { fill: #7c3aed; }
+    .note path.note-rule { stroke: #3b6fd4; stroke-width: 0.8; opacity: 0.35; }
+    .note text.note-key { font-size: 10px; fill: #8a93a3; letter-spacing: 0.03em; }
+    text.encoder.shifted { transform: translateY(4px); }
+    text.encoder.hold { transform: translateY(-4px); }
+    text.hold { fill: #7c3aed; font-weight: 600; }
+    text.shifted { fill: #7c7f88; font-size: 10.5px; transform: translateY(3px); }
+    text.trans { fill: #b9bec6; }
+    text.label { font-size: 19px; font-weight: 600; letter-spacing: 0.02em; }
+    path.combo { stroke: #93c5fd; }
+    @media (prefers-color-scheme: dark) {
+      svg.keymap { background-color: #0d1117; fill: #e6edf3; color: #e6edf3; }
+      rect.key { fill: #1a2029; }
+      rect.key, rect.combo { stroke: #343b45; }
+      rect.side { filter: brightness(85%); }
+      rect.held, rect.combo.held { fill: #3b2f63; stroke: #8b5cf6; }
+      path.combo-outline, path.combo-leader { stroke: #e0a82e; }
+      rect.combo { fill: #2a2312; stroke: #e0a82e; }
+      text.combo.hold { fill: #b8a468; }
+      .knob rect.combo { fill: #12251c; stroke: #46b37a; }
+      path.combo-leader.knob { stroke: #46b37a; }
+      rect.encoder { fill: #16281f; }
+      rect.encoder.side { stroke: #46b37a; fill: #101c15; }
+      rect.trackpad.side { stroke: #d9739f; }
+      .pad rect.combo { fill: #2b141f; stroke: #d9739f; }
+      path.combo-leader.pad { stroke: #d9739f; }
+      .pad text.combo.hold { fill: #c08fa2; }
+      .note rect.combo { fill: #121d33; stroke: #5b8fe6; }
+      path.combo-outline.note, path.combo-leader.note { stroke: #5b8fe6; }
+      .note text.note-label { fill: #98a2b3; }
+      .note text.note-chord, .note text.note-mark.tap { fill: #7dabf0; }
+      .note text.note-mark.hold { fill: #a78bfa; }
+      .note path.note-rule { stroke: #7dabf0; }
+      .note text.note-key { fill: #6d7788; }
+      .knob text.combo.shifted, .knob text.combo.hold { fill: #7fae95; }
+      text.br { fill: #a78bfa; }
+      text.bl { fill: #7d848d; }
+      text.hold { fill: #a78bfa; }
+      text.shifted { fill: #8b929c; }
+      text.trans { fill: #4d545e; }
+      text.label, text.footer { stroke: #0d1117; }
+      path.combo { stroke: #2f6fb0; }
+    }
